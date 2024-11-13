@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 30,
+    "patch": 5
+  },
+  "configurePresets": [
+    {
+      "name": "errors",
+      "displayName": "Debug",
+      "description": "Debug symbols and verbose errors.",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-std=c++20 -O2 -g -Weverything"
+      }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug",
+      "description": "Debug build.",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-std=c++20 -O2 -g -Wall -Wdeprecated -Wextra -Werror -Wcast-align -Wdouble-promotion -Wimplicit-fallthrough -Wmisleading-indentation -Wnon-virtual-dtor -Wnull-dereference -Wold-style-cast -Woverloaded-virtual -Wpedantic -Wshadow -Wundef -Wuninitialized"
+      }
+    },
+	  {
+      "name": "release",
+      "displayName": "Release",
+      "description": "Release build",
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_CXX_FLAGS": "-std=c++20 -O2"
+       }
+	 }
+  ]
+}
+
+
