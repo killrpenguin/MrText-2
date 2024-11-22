@@ -1,9 +1,8 @@
 #include "MrText/MrText.hpp"
 #include <exception>
 #include <iostream>
-#include <stdexcept>
 
-int main(int argc, char *argv[]) {
+auto main(int argc, char *argv[]) -> int {
   try {
     if (argc > 1) {
       MrText editor(argv[1]);
@@ -13,7 +12,7 @@ int main(int argc, char *argv[]) {
       editor.run();
     }
   } catch (const std::exception &err) {
-    std::cerr << err.what() << std::endl;
+    std::cerr << err.what() << '\n';
     return -1;
   }
   return 0;

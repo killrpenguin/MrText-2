@@ -1,54 +1,49 @@
 #include "MrText/ArrayBuffer.hpp"
 #include "MrText/KeyMap.hpp"
-#include "MrText/RopeConstants.hpp"
 #include <MrText/MrText.hpp>
 
-#include <asm-generic/ioctls.h>
 #include <cassert>
-#include <csignal>
-#include <cstdio>
 #include <cstdlib>
 #include <stdexcept>
 
 #include <iostream>
 #include <string>
 #include <tuple>
-#include <type_traits>
-#include <unistd.h>
+#include <unordered_map>
 #include <vector>
 
+#include <csignal>
 #include <sys/ioctl.h>
 #include <termios.h>
 
 bool RESIZE_SWITCH = false;
 
-static void handle_resize(int sig) {
-  if (sig != 0) {
+void handle_resize(int sig) {
+  if (sig) {
   }
   RESIZE_SWITCH = true;
 }
 
-MrText::MrText()
-    : running{true}, line_buffering{true}, original_term{}, app_data{
-                                                                KeyMapData()} {
+MrText::MrText() noexcept
+    : running{true}, line_buffering{true}, app_data{KeyMapData()} {
 
   raw_mode();
-  std::cout << escSeqs::CLR_SCRN << '\n';
+  std::cout << escSeqs::CLR_SCRN << std::endl;
 }
 
-MrText::MrText(const std::string &file_name)
-    : running{true}, line_buffering{true},
-      original_term{}, app_data{KeyMapData()}, file_name{file_name} {
+MrText::MrText(std::string file_name) noexcept
+    : running{true},
+      line_buffering{true}, app_data{KeyMapData()}, file_name{file_name} {
 
   raw_mode();
-  std::cout << escSeqs::CLR_SCRN << '\n';
+  std::cout << escSeqs::CLR_SCRN << std::endl;
 }
 
 MrText::~MrText() {
   tcsetattr(STDIN_FILENO, TCSAFLUSH, &original_term);
   file_strm.close();
   toggle_linebuffering();
-  std::cout << escSeqs::CLR_SCRN << escSeqs::CURSOR_HOME << '\n';
+  std::cout << escSeqs::CLR_SCRN << escSeqs::CURSOR_HOME << std::endl;
 }
 
 void MrText::position_cursor(unsigned int row_pos,
@@ -60,64 +55,65 @@ void MrText::position_cursor(unsigned int row_pos,
 }
 
 void MrText::toggle_linebuffering() noexcept {
-  if (line_buffering) {
+  if (line_buffering == true) {
     line_buffering = false;
     // Disable stdout line buffering.
-    setvbuf(stdout, nullptr, _IONBF, BUFSIZ);
+    setvbuf(stdout, NULL, _IONBF, BUFSIZ);
   } else {
     line_buffering = true;
     // Enable stdout line buffering.
-    setvbuf(stdout, nullptr, _IOLBF, BUFSIZ);
+    setvbuf(stdout, NULL, _IOLBF, BUFSIZ);
   }
 }
 
-auto MrText::parse_pos(std::streambuf *pbuf) noexcept -> cursor_pos {
+const std::tuple<unsigned int, unsigned int>
+MrText::parse_pos(std::streambuf *pbuf) noexcept {
   unsigned int row{};
   unsigned int result{};
 
   std::vector<unsigned int> number_buffer;
 
   while (true) {
-    char const letter = static_cast<char>(pbuf->sbumpc());
-    if (letter == 'R' || letter == -1) {
+    char ch = static_cast<char>(pbuf->sbumpc());
+    if (ch == 'R' || ch == -1) {
       break;
     }
-    if (letter >= '0' && letter <= '9') {
-      number_buffer.push_back(letter - '0');
+    if (ch >= '0' && ch <= '9') {
+      number_buffer.push_back(ch - '0');
     }
-    if (letter == ';') {
-      for (unsigned int const num : number_buffer) {
-        result = result * RopeConst::Ten + num;
+    if (ch == ';') {
+      for (unsigned int num : number_buffer) {
+        result = result * 10 + num;
       }
       row = result;
       number_buffer.clear();
       result = 0;
     }
   }
-  for (unsigned int const num : number_buffer) {
-    result = result * RopeConst::Ten + num;
+  for (unsigned int num : number_buffer) {
+    result = result * 10 + num;
   }
   assert((row != 0) && "Could not get row size.");
   assert((result != 0) && "Could not get column size.");
   return std::tuple<unsigned int, unsigned int>{row, result};
 }
 
-auto MrText::display_file() noexcept -> void {
+void MrText::display_file() noexcept {
   position_cursor(1, 1);
   std::string line{};
   while (std::getline(file_strm, line, '\n')) {
     if (line.length() <= app_data.cur_col) {
-      std::cout << line << escSeqs::RNL;
+      std::cout << line << escSeqs::RN;
     } else {
-      size_t const space_pos = line.find_last_of(' ', app_data.cur_col);
-      std::cout << line.substr(0, space_pos) << escSeqs::RNL
-                << line.substr(space_pos, line.length()) << escSeqs::RNL;
+      size_t space_pos = line.find_last_of(" ", app_data.cur_col);
+      std::cout << line.substr(0, space_pos) << escSeqs::RN
+                << line.substr(space_pos, line.length()) << escSeqs::RN;
     }
     line.clear();
   }
 }
 
-auto MrText::screen_size() noexcept -> void {
+void MrText::screen_size() noexcept {
   struct winsize win_size {};
   if (ioctl(STDOUT_FILENO, TIOCGWINSZ, &win_size) == 0 ||
       win_size.ws_col != 0) {
@@ -137,7 +133,7 @@ auto MrText::screen_size() noexcept -> void {
   }
 }
 
-auto MrText::raw_mode() -> void {
+void MrText::raw_mode() {
   if (tcgetattr(STDIN_FILENO, &original_term) != 0) {
     throw std::runtime_error("Unable to backup terminal settings.");
     std::abort();
@@ -157,7 +153,7 @@ auto MrText::raw_mode() -> void {
   }
 }
 
-auto MrText::init_file() noexcept -> void {
+void MrText::init_file() noexcept {
   if (file_name.empty() && !file_strm.is_open()) {
     file_strm.open("new.txt");
   } else {
@@ -165,10 +161,10 @@ auto MrText::init_file() noexcept -> void {
   }
 }
 
-auto MrText::display_key() noexcept -> void {
-  for (const char letter : buffer) {
-    if (letter != 0) {
-      std::cout << letter;
+void MrText::display_key() noexcept {
+  for (const char b : buffer) {
+    if (b != 0) {
+      std::cout << b;
     }
   }
   std::cout.flush();
@@ -176,9 +172,9 @@ auto MrText::display_key() noexcept -> void {
 
 void MrText::parse_ascii_key(const char buf) noexcept {
   if (buf >= hex::ctrlBegin && buf <= hex::ctrlEnd) {
-    key const key_press{static_cast<key>(buf)};
+    key key_press{static_cast<key>(buf)};
     if (buf == hex::exitEditor) {
-      std::cout << escSeqs::CLR_SCRN << '\n';
+      std::cout << escSeqs::CLR_SCRN << std::endl;
       running = false;
     }
     if (key_map.contains(key_press)) {
@@ -192,7 +188,7 @@ void MrText::parse_ascii_key(const char buf) noexcept {
   }
 }
 
-void MrText::parse_key(const char *zero) noexcept {
+void MrText::parse_key(char *zero) noexcept {
   key key_press = key::null;
   if (*zero == '\x1b') {
     char *one = buffer.next();
@@ -207,8 +203,6 @@ void MrText::parse_key(const char *zero) noexcept {
       case 'F':
         key_press = key::End;
         break;
-      default:
-        break;
       }
     }
   }
@@ -220,7 +214,7 @@ void MrText::parse_key(const char *zero) noexcept {
   }
 }
 
-auto MrText::parse_escape_keys(const char *two) noexcept -> key {
+key MrText::parse_escape_keys(char *two) noexcept {
   char *three = buffer.next();
   if (*two >= '0' && *two <= '9' && *three == '~') {
     switch (*two) {
@@ -238,8 +232,6 @@ auto MrText::parse_escape_keys(const char *two) noexcept -> key {
       return key::Home;
     case '8':
       return key::End;
-    default:
-      break;
     }
   } else {
     switch (*two) {
@@ -255,14 +247,12 @@ auto MrText::parse_escape_keys(const char *two) noexcept -> key {
       return key::Home;
     case 'F':
       return key::End;
-    default:
-      break;
     }
   }
   return key::null;
 }
 
-auto MrText::update(unsigned int line_len) noexcept -> void {
+void MrText::update(unsigned int line_len) noexcept {
   buffer.reset();
 
   if (RESIZE_SWITCH) {
@@ -276,13 +266,13 @@ auto MrText::update(unsigned int line_len) noexcept -> void {
   app_data.cur_row = std::get<0>(pos);
   app_data.cur_col = std::get<1>(pos);
   app_data.cur_line_len = line_len;
-  app_data.last_row = RopeConst::TempLastRow; // temp value.
+  app_data.last_row = 250; // temp value.
 
   assert((app_data.cur_row != 0) && "Could not get row size.");
   assert((app_data.cur_col != 0) && "Could not get column size.");
 }
 
-auto MrText::run() noexcept -> void {
+void MrText::run() noexcept {
   init_file();
   screen_size();
 
@@ -293,16 +283,16 @@ auto MrText::run() noexcept -> void {
   signal(SIGWINCH, handle_resize);
   position_cursor(1, 1);
   create_ctrl_key_map();
-  buffer_type *arr_buf = buffer.pInner();
+  buffer_type *b = buffer.pInner();
 
-  if (arr_buf == nullptr) {
+  if (b == nullptr) {
     std::abort();
   }
 
   while (running) {
-    update(RopeConst::TempLineLen); // temp value;
+    update(64); // temp value;
 
-    if (read(STDIN_FILENO, arr_buf, 4) == 1) {
+    if (read(STDIN_FILENO, b, 4) == 1) {
       parse_ascii_key(buffer[0]);
     } else {
       if (buffer[1] != 0) {
@@ -312,7 +302,7 @@ auto MrText::run() noexcept -> void {
   }
 }
 
-auto MrText::create_ctrl_key_map() noexcept -> void {
+void MrText::create_ctrl_key_map() noexcept {
   key_map[key::K] = kill_line;
   key_map[key::N] = cursor_down;
   key_map[key::P] = cursor_up;
@@ -341,10 +331,6 @@ class enum_hash {
   }
 };
 
-const int RopeConst::Ten = 10;
-const int RopeConst::TempLastRow = 250;
-const int RopeConst::TempLineLen = 65;
-
 const int hex::exitEditor{0x11};
 const int hex::ctrlBegin{0x01};
 const int hex::ctrlEnd{0x1F};
@@ -352,7 +338,7 @@ const int hex::asciiBegin{0x20};
 const int hex::asciiEnd{0x7E};
 const int hex::l_brac{0x5B};
 
-const std::string escSeqs::RNL{"\r\n"};
+const std::string escSeqs::RN{"\r\n"};
 const std::string escSeqs::CURSOR_HOME{"\x1b[H"};
 const std::string escSeqs::CLR_SCRN{"\x1b[2J"};
 const std::string escSeqs::CLR_LN{"\x1b[2K"};

@@ -10,13 +10,13 @@ using buffer_type = std::array<char, 4>;
 template <typename Val_T> class ArrayBuffer {
 
 public:
-  ArrayBuffer() noexcept;
-  ArrayBuffer(buffer_type input) noexcept;
+  ArrayBuffer();
+  ArrayBuffer(buffer_type input);
 
   char operator[](int idx);
 
-  buffer_type inner;
-  unsigned long pos;
+  buffer_type inner{};
+  unsigned long pos{};
 
   buffer_type::iterator begin() noexcept;
   buffer_type::iterator end() noexcept;
@@ -27,8 +27,9 @@ public:
   constexpr buffer_type::const_reverse_iterator rbegin() const noexcept;
   constexpr buffer_type::const_reverse_iterator rend() const noexcept;
 
+  buffer_type* pInner() noexcept;
   bool valid_char() const noexcept;
   bool empty() const noexcept;
-  void zero() noexcept;
+  void reset() noexcept;
   char *next() noexcept;
 };

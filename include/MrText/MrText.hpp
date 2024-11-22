@@ -1,9 +1,11 @@
 #pragma once
 
-#include "KeyMap.hpp"
+#include "ArrayBuffer.hpp"
+#include "MrText/KeyMap.hpp"
 
 #include <array>
 #include <cstddef>
+#include <cstdint>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -16,49 +18,56 @@
 #include <unordered_map>
 #include <vector>
 
+using cursor_pos = const std::tuple<unsigned int, unsigned int>;
+extern bool RESIZE_SWITCH;
+class KeyMapData;
+
 class MrText {
-  typedef void (*functionPtr)();
-  using cursor_pos = const std::tuple<unsigned int, unsigned int>;
+  typedef void (*functionPtr)(const KeyMapData &data);
   using unordered_map = std::unordered_map<key, functionPtr>;
-  using utf8_array = std::array<char, 4>;
 
 private:
   bool running;
+  bool line_buffering;
   termios original_term;
-  utf8_array utf8_buf;
+  ArrayBuffer<char> buffer;
+  KeyMapData app_data;
 
   std::fstream file_strm;
   const std::filesystem::path file_name;
 
-  void raw_mode();
+  auto raw_mode() -> void;
+  auto screen_size() noexcept -> void;
+  auto toggle_linebuffering() noexcept -> void;
 
-  void init_file() noexcept;
-  void display_file() noexcept;
-  void create_ctrl_key_map() noexcept;
-  void position_cursor(unsigned int row, unsigned int col) noexcept;
+  auto init_file() noexcept -> void;
+  auto display_file() noexcept -> void;
+  auto create_ctrl_key_map() noexcept -> void;
+  static auto position_cursor(unsigned int row, unsigned int col) noexcept
+      -> void;
+  auto display_key() noexcept -> void;
 
 protected:
   unordered_map key_map;
-  std::uint32_t row;
-  std::uint32_t col;
 
 public:
-  MrText() noexcept;
-  MrText(std::string file_name) noexcept;
+  MrText();
+  MrText(const std::string &file_name);
   ~MrText();
 
-  void set_buffer_val(utf8_array test_buf) noexcept;
-
-  cursor_pos parse_pos(std::streambuf *pbuf) noexcept;
-
-  key parse_key() noexcept;
-  void parse_ascii_key(const char buffer) noexcept;
-
-  void parse_ctrl_event() noexcept;
-  void screen_size() noexcept;
-  void run() noexcept;
+  auto parse_key(const char *zero) noexcept -> void;
+  key parse_escape_keys(const char *two) noexcept;
+  static auto parse_pos(std::streambuf *pbuf) noexcept -> cursor_pos;
+  auto parse_ascii_key(const char buffer) noexcept -> void;
+  auto update(unsigned int line_len) noexcept -> void;
+  auto run() noexcept -> void;
 };
 
+class ResizeStatus {
+public:
+  ResizeStatus() noexcept;
+  bool resize;
+};
 
 class hex {
 public:
@@ -67,11 +76,12 @@ public:
   const static int exitEditor;
   const static int asciiBegin;
   const static int asciiEnd;
+  const static int l_brac;
 };
 
 class escSeqs {
 public:
-  const static std::string RN;
+  const static std::string RNL;
   const static std::string CLR_SCRN;
   const static std::string CURSOR_HOME;
   const static std::string CLR_LN;

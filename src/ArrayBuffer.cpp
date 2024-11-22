@@ -1,63 +1,38 @@
+
 #include "MrText/ArrayBuffer.hpp"
 
 #include <array>
-#include <cstddef>
 #include <iostream>
-#include <iterator>
 #include <stdexcept>
 
-template <typename Val_T>
-buffer_type::iterator ArrayBuffer<Val_T>::begin() noexcept {
-  return inner.begin();
-}
+template <typename Val_T> ArrayBuffer<Val_T>::ArrayBuffer() = default;
 
 template <typename Val_T>
-buffer_type::iterator ArrayBuffer<Val_T>::end() noexcept {
-  return inner.end();
-}
+ArrayBuffer<Val_T>::ArrayBuffer(buffer_type input) : inner{input}, pos{0} {}
 
 template <typename Val_T>
-constexpr buffer_type::const_reverse_iterator
-ArrayBuffer<Val_T>::rbegin() const noexcept {
-  return inner.rbegin();
-}
-
-template <typename Val_T>
-constexpr buffer_type::const_reverse_iterator
-ArrayBuffer<Val_T>::rend() const noexcept {
-  return inner.rend();
-}
-
-template <typename Val_T>
-constexpr buffer_type::const_iterator
-ArrayBuffer<Val_T>::cbegin() const noexcept {
-  return inner.cbegin();
-}
-
-template <typename Val_T>
-constexpr buffer_type::const_iterator
-ArrayBuffer<Val_T>::cend() const noexcept {
-  return inner.cend();
-}
-
-template <typename Val_T>
-ArrayBuffer<Val_T>::ArrayBuffer(buffer_type input) noexcept
-    : inner(input), pos(0) {}
-
-template <typename Val_T>
-bool ArrayBuffer<Val_T>::valid_char() const noexcept {
+auto ArrayBuffer<Val_T>::valid_char() const noexcept -> bool {
   return inner[pos] != 0;
 }
 
-template <typename Val_T> bool ArrayBuffer<Val_T>::empty() const noexcept {
+template <typename Val_T>
+auto ArrayBuffer<Val_T>::empty() const noexcept -> bool {
   return inner.begin() == inner.end();
 }
 
-template <typename Val_T> void ArrayBuffer<Val_T>::zero() noexcept {
-  inner.fill(0);
+template <typename Val_T> void ArrayBuffer<Val_T>::reset() noexcept {
+  if (inner[0] != 0) {
+	pos = 0;
+	inner.fill(0);
+  }
 }
 
-template <typename Val_T> char ArrayBuffer<Val_T>::operator[](int idx) {
+template <typename Val_T>
+auto ArrayBuffer<Val_T>::pInner() noexcept -> buffer_type * {
+  return &inner;
+}
+
+template <typename Val_T> auto ArrayBuffer<Val_T>::operator[](int idx) -> char {
   char ret_val{};
   try {
     ret_val = inner.at(idx);
@@ -67,7 +42,7 @@ template <typename Val_T> char ArrayBuffer<Val_T>::operator[](int idx) {
   return ret_val;
 }
 
-template <typename Val_T> char *ArrayBuffer<Val_T>::next() noexcept {
+template <typename Val_T> auto ArrayBuffer<Val_T>::next() noexcept -> char * {
   if (inner.size() == pos) {
     pos = 0;
   }
@@ -76,11 +51,45 @@ template <typename Val_T> char *ArrayBuffer<Val_T>::next() noexcept {
   } catch (const std::out_of_range &oor) {
     std::cerr << "Out of Range error: " << oor.what() << '\n';
   }
-  char *p_ret_val;
+  char *p_ret_val = nullptr;
   p_ret_val = &inner[pos];
 
   pos++;
   return p_ret_val;
+}
+
+template <typename Val_T>
+auto ArrayBuffer<Val_T>::begin() noexcept -> buffer_type::iterator {
+  return inner.begin();
+}
+
+template <typename Val_T>
+auto ArrayBuffer<Val_T>::end() noexcept -> buffer_type::iterator {
+  return inner.end();
+}
+
+template <typename Val_T>
+constexpr auto ArrayBuffer<Val_T>::rbegin() const noexcept
+    -> buffer_type::const_reverse_iterator {
+  return inner.rbegin();
+}
+
+template <typename Val_T>
+constexpr auto ArrayBuffer<Val_T>::rend() const noexcept
+    -> buffer_type::const_reverse_iterator {
+  return inner.rend();
+}
+
+template <typename Val_T>
+constexpr auto ArrayBuffer<Val_T>::cbegin() const noexcept
+    -> buffer_type::const_iterator {
+  return inner.cbegin();
+}
+
+template <typename Val_T>
+constexpr auto ArrayBuffer<Val_T>::cend() const noexcept
+    -> buffer_type::const_iterator {
+  return inner.cend();
 }
 
 template class ArrayBuffer<char>;

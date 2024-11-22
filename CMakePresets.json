@@ -23,7 +23,7 @@
       "generator": "Unix Makefiles",
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_CXX_FLAGS": "-std=c++20 -O2 -g -Wall -Wdeprecated -Wextra -Werror -Wcast-align -Wdouble-promotion -Wimplicit-fallthrough -Wmisleading-indentation -Wnon-virtual-dtor -Wnull-dereference -Wold-style-cast -Woverloaded-virtual -Wpedantic -Wshadow -Wundef -Wuninitialized"
+        "CMAKE_CXX_FLAGS": "-std=c++20 -O0 -g -Wall -Wdeprecated -Wextra -Werror -Wcast-align -Wdouble-promotion -Wimplicit-fallthrough -Wmisleading-indentation -Wnon-virtual-dtor -Wnull-dereference -Wold-style-cast -Woverloaded-virtual -Wpedantic -Wshadow -Wundef -Wuninitialized"
       }
     },
 	  {
