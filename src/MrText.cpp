@@ -301,7 +301,6 @@ auto MrText::run() noexcept -> void {
 
   while (running) {
     update(RopeConst::TempLineLen); // temp value;
-
     if (read(STDIN_FILENO, arr_buf, 4) == 1) {
       parse_ascii_key(buffer[0]);
     } else {

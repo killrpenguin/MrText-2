@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <catch2/catch.hpp>
 #include <tuple>
+
 // clang-tidy tests/testlib.cpp -p build -- -isystem build/_deps
 
 TEST_CASE("Check parse_cursor_pos.", "[main]") {

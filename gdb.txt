@@ -1,0 +1,97 @@
+Reading symbols from ./build/main/main...
++target remote | /usr/libexec/valgrind/../../bind/vgdb --pid=7291
+Remote debugging using | /usr/libexec/valgrind/../../bind/vgdb --pid=7291
+Remote communication error.  Target disconnected: error while reading: Connection reset by peer.
++target remote | vgdb
+Remote debugging using | vgdb
+relaying data between gdb and process 7291
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+0x000000000401cc40 in _start () from /lib64/ld-linux-x86-64.so.2
++break run
+Breakpoint 1 at 0x10d575: file /home/david/Programming/cpp_dev/MrText/src/MrText.cpp, line 286.
++run
+The "remote" target does not support "run".  Try "help target" or "continue".
++continue
+Continuing.
+
+Breakpoint 1, MrText::run (this=0x1ffefff2f8) at /home/david/Programming/cpp_dev/MrText/src/MrText.cpp:286
++n
++n
++info locals
+arr_buf = 0x0
++n
++n
++n
++n
++n
++n
++info locals
+arr_buf = 0x1ffefff338
++n
++info locals
+arr_buf = 0x1ffefff338
++n
++print *arr_buf
+$1 = {
+  _M_elems = "\000\000\000"
+}
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++exit
+Reading symbols from ./build/tests/testlib...
++break insert_char
+Breakpoint 1 at 0xfbe11: file /home/david/Programming/cpp_dev/MrText/src/Rope.cpp, line 29.
++continue
+The program is not being run.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, Rope<char, 3>::insert_char (this=0x7fffffffc9f8, val=49 '1') at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:29
++info locals
+No locals.
++print *this
+$1 = {
+  root = std::shared_ptr<Node<char, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556ce760
+  }
+}
++n
++print *this
+$2 = {
+  root = std::shared_ptr<Node<char, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556ce760
+  }
+}
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:80
++info locals
+test_buffer = {
+  temp_buffer = Python Exception <class 'IndexError'>: list index out of range
+<incomplete type>,
+  backup_buffer = 0x7ffff7f9cd60
+}
+rope = {
+  root = std::shared_ptr<Node<char, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556ce760
+  }
+}
++print *temp_buffer
+No symbol "temp_buffer" in current context.
++print temp_buffer
+No symbol "temp_buffer" in current context.
++exit

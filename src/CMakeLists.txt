@@ -4,10 +4,11 @@ set(HEADER_LIST "${Mr_Text_SOURCE_DIR}/include/MrText/MrText.hpp"
 		"${Mr_Text_SOURCE_DIR}/include/MrText/KeyMap.hpp"
 		"${Mr_Text_SOURCE_DIR}/include/MrText/Rope.hpp"
 		"${Mr_Text_SOURCE_DIR}/include/MrText/Node.hpp"
-		"${Mr_Text_SOURCE_DIR}/include/MrText/TextInfo.hpp")
+		"${Mr_Text_SOURCE_DIR}/include/MrText/TextInfo.hpp"
+		"${Mr_Text_SOURCE_DIR}/include/MrText/Event.hpp")
 
 set(FILE_LIST "MrText.cpp" "ArrayBuffer.cpp" "KeyMap.cpp"
-		"Rope.cpp" "Node.cpp" "TextInfo.cpp")
+		"Rope.cpp" "Node.cpp" "TextInfo.cpp" Event.cpp)
 
 add_library(MrText ${FILE_LIST} ${HEADER_LIST})
 

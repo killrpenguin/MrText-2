@@ -5,8 +5,8 @@
 #include <bits/stdc++.h>
 #include <iostream>
 #include <memory>
+#include <new>
 #include <string>
-#include <tuple>
 
 const int RopeConst::MaxStrLen = 23;
 
@@ -43,13 +43,13 @@ void Rope<T, ORDER>::insert_char(T val) noexcept {
 };
 
 template <typename T, int ORDER>
-void Rope<T, ORDER>::split_child(const pNode &arg_node,
-                                 const int idx) noexcept {
+auto Rope<T, ORDER>::split_child(const pNode &arg_node, const int idx) noexcept
+    -> void {
 
-  pNode const target_node = arg_node->children[idx];
+  pNode target_node = arg_node->children[idx];
   pNode new_node{};
   try {
-    new_node = std::unique_ptr<Node<T, ORDER>>(
+    new_node = std::shared_ptr<Node<T, ORDER>>(
         new Node<T, ORDER>(std::string(""), false));
 
   } catch (const std::bad_alloc &e) {
@@ -85,7 +85,7 @@ void Rope<T, ORDER>::split_child(const pNode &arg_node,
 }
 
 template <typename T, int ORDER>
-void Rope<T, ORDER>::insert_non_full(pNode &arg_node, T val) noexcept {
+auto Rope<T, ORDER>::insert_non_full(pNode &arg_node, T val) noexcept -> void {
   int idx = arg_node->cur_key_count - 1;
 
   if (arg_node->leaf) {
@@ -110,7 +110,7 @@ void Rope<T, ORDER>::insert_non_full(pNode &arg_node, T val) noexcept {
 }
 
 template <typename T, int ORDER>
-void Rope<T, ORDER>::traverse(pNode &root_node) noexcept {
+auto Rope<T, ORDER>::traverse(pNode &root_node) noexcept -> void {
   unsigned int idx = 0;
 
   for (idx = 0; idx < root_node->cur_key_count; idx++) {
