@@ -95,3 +95,3176 @@ No symbol "temp_buffer" in current context.
 +print temp_buffer
 No symbol "temp_buffer" in current context.
 +exit
+Reading symbols from ./build/tests/testlib...
++target remote | vgdb
+Remote debugging using | vgdb
+Remote communication error.  Target disconnected: error while reading: Connection reset by peer.
++target remote | /usr/libexec/valgrind/../../bin/vgdb
+Remote debugging using | /usr/libexec/valgrind/../../bin/vgdb
+Remote communication error.  Target disconnected: error while reading: Connection reset by peer.
++target remote | usr/libexec/valgrind/../../bin/bgdb --pid=17812
+Remote debugging using | usr/libexec/valgrind/../../bin/bgdb --pid=17812
+Remote communication error.  Target disconnected: error while reading: Connection reset by peer.
++quit
+Reading symbols from ./build/tests/testlib...
++target | remote vgdb
+Undefined target command: "| remote vgdb".  Try "help target".
++target remote | vgdb
+Remote debugging using | vgdb
+relaying data between gdb and process 3635
+warning: remote target does not support file transfer, attempting to access files from local filesystem.
+Reading symbols from /lib64/ld-linux-x86-64.so.2...
+0x000000000401cc40 in _start () from /lib64/ld-linux-x86-64.so.2
++break NewRope
+Breakpoint 1 at 0x1b25fc: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 17.
++continue
+Continuing.
+
+Breakpoint 1, NewRope::NewRope (this=0x1ffeffeb60) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:17
++print *this
+$1 = {
+  root = std::shared_ptr<NewRope> (empty) = {
+    get() = 0x0
+  },
+  node = std::shared_ptr<NewRope> (empty) = {
+    get() = 0x0
+  },
+  weight = 0,
+  line = ""
+}
++n
++n
+
+Breakpoint 1, NewRope::NewRope (this=0x4e9a730) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:17
++n
++n
+
+Breakpoint 1, NewRope::NewRope (this=0x4e9a7c0) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:17
++n
++n
+
+Breakpoint 1, NewRope::NewRope (this=0x4e9a850) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:17
++n
++n
+
+Breakpoint 1, NewRope::NewRope (this=0x4e9a8e0) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:17
++info locals
+No locals.
++print *this
+$2 = {
+  root = std::shared_ptr<NewRope> (empty) = {
+    get() = 0x0
+  },
+  node = std::shared_ptr<NewRope> (empty) = {
+    get() = 0x0
+  },
+  weight = 0,
+  line = ""
+}
++exit
+Reading symbols from ./build/tests/testlib...
++target remote | vgdb
+Remote debugging using | vgdb
+Remote communication error.  Target disconnected: error while reading: Connection reset by peer.
++target remote | /usr/libexec/valgrind/../../bin/vgdb --pid 4725
+Remote debugging using | /usr/libexec/valgrind/../../bin/vgdb --pid 4725
+Remote communication error.  Target disconnected: error while reading: Connection reset by peer.
+warning: Error detected on fd 0
+error detected on stdin
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa5fc: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 17.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbd0) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:17
+warning: Source file is more recent than executable.
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 28.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbe8) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:28
++n
++n
++n
++print *this
+$1 = {
+  root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+    get() = 0x5555556d1e60
+  }
+}
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> > (this=0x7fffffffcbf8, __s=0x5555556575e7 "test", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:650
++info locals
+__end = 0x7fff00000000 <error: Cannot access memory at address 0x7fff00000000>
++print *this
+$2 = ""
++print backtrace full
+A syntax error in expression, near `full'.
++backtrace full
+#0  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> > (this=0x7fffffffcbf8, __s=0x5555556575e7 "test", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:650
+        __end = 0x7fff00000000 <error: Cannot access memory at address 0x7fff00000000>
+#1  0x000055555559ce95 in ____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
+        rope = {
+          root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+            get() = 0x5555556d1e60
+          }
+        }
+#2  0x00005555555858d7 in Catch::TestInvokerAsFunction::invoke (this=0x5555556cff10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14317
+No locals.
+#3  0x000055555557f498 in Catch::TestCase::invoke (this=0x5555556ef150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14156
+No locals.
+#4  0x000055555557f3a2 in Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13016
+        _ = {
+          m_handler = 0x7fffffffd5d8
+        }
+#5  0x000055555557de75 in Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12989
+        testCaseInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        testCaseSection = {
+          name = "Binary Tree Rope Practice.",
+          description = "",
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          }
+        }
+        prevAssertions = {
+          passed = 26,
+          failed = 0,
+          failedButOk = 0
+        }
+        duration = 0
+        timer = {
+          m_nanoseconds = 1732476744588607960
+        }
+        assertions = {
+          passed = 0,
+          failed = 0,
+          failedButOk = 140737488342544
+        }
+        missingAssertions = false
+        testCaseSectionStats = {
+          _vptr$SectionStats = 0x7fffffffd9a8,
+          sectionInfo = {
+            name = "\340\316\377\377\377\177\000\000\024\355[UUU\000\000X\321\377\377\377\177\000\000X\321\377\377\377\177\000\000\032\000\000\000\000\000\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\000\317\377\377\377\177\000\000\200\vmUUU\000\000\032\000\000\000\000\000\000\000\032\000\000\000\000\000\000\000 \317\377\377\377\177\000\000\030\317\377\377\377\177", '\000' <repeats 11 times>, "\321\377\377\377\177\000\000@\317\377\377\377\177\000\000\203`eUUU\000\000W\000\000\000\000\000\000\000\000m\275\357(\316k\352\320\321\377\377\377\177\000\000"...,
+            description = "",
+            lineInfo = {
+              file = 0x7fffffffd158 "\200\vmUUU",
+              line = 140737488343384
+            }
+          },
+          assertions = {
+            passed = 26,
+            failed = 140737488343384,
+            failedButOk = 27
+          },
+          durationInSeconds = 4.6355706153326264e-310,
+          missingAssertions = 88
+        }
+#6  0x000055555557d1dd in Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12750
+        prevTotals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        redirectedCout = ""
+        redirectedCerr = ""
+        testInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        rootTracker = @0x5555556cf770: {
+          _vptr$ITracker = 0x5555556b7bd0 <vtable for Catch::TestCaseTracking::SectionTracker+16>,
+          m_nameAndLocation = {
+            name = "{root}",
+            location = {
+              file = 0x555555654fb9 "/home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp",
+              line = 14359
+            }
+          }
+        }
+        deltaTotals = {
+          error = 0,
+          assertions = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#7  0x0000555555581fbf in Catch::(anonymous namespace)::TestGroup::execute (this=0x7fffffffd3e0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13343
+        testCase = @0x5555556df460: 0x5555556ef150
+        __range2 = std::set with 5 elements = {
+          [0] = 0x5555556eee70,
+          [1] = 0x5555556eef28,
+          [2] = 0x5555556eefe0,
+          [3] = 0x5555556ef098,
+          [4] = 0x5555556ef150
+        }
+        __begin2 = 0x5555556ef150
+        __end2 = 0x5
+        invalidArgs = std::vector of length 0, capacity 0
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#8  0x000055555558150f in Catch::Session::runInternal (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13549
+        tests = {
+          m_config = std::shared_ptr<Catch::Config> (use count 5, weak count 0) = {
+            get() = 0x5555556d1130
+          },
+          m_context = {
+            <Catch::IResultCapture> = {
+              _vptr$IResultCapture = 0x5555556b7910 <vtable for Catch::RunContext+16>
+            }, 
+            <Catch::IRunner> = {
+              _vptr$IRunner = 0x5555556b79d0 <vtable for Catch::RunContext+208>
+            }, 
+            members of Catch::RunContext:
+            m_runInfo = {
+              name = "testlib"
+            },
+            m_context = @0x5555556eec00,
+            m_activeTestCase = 0x5555556ef150,
+            m_testCaseTracker = 0x5555556d0ce0,
+            m_lastResult = {
+              nullableValue = 0x0,
+              storage = "H\326\377\377\377\177\000\000 \326\377\377\377\177\000\000p\324\377\377\377\177\000\000\235\b\\UUU\000\000H\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\220\324\377\377\377\177\000\000\262\n\\UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\260\324\377\377\377\177\000\000\230I[UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000p\326\377\377\377\177\000\000\351\021XUUU\000\000`\000mUUU\000\000\300\363lUUU\000"
+            },
+            m_config = std::shared_ptr<const Catch::IConfig> (use count 5, weak count 0) = {
+              get() = 0x5555556d1130
+            },
+            m_totals = {
+              error = 0,
+              assertions = {
+                passed = 26,
+                failed = 0,
+                failedButOk = 0
+              },
+              testCases = {
+                passed = 4,
+                failed = 0,
+                failedButOk = 0
+              }
+            },
+            m_reporter = std::unique_ptr<Catch::IStreamingReporter> = {
+              get() = 0x5555556cf900
+            },
+            m_messages = std::vector of length 0, capacity 0,
+            m_messageScopes = std::vector of length 0, capacity 0,
+            m_lastAssertionInfo = {
+              macroName = {
+                static s_empty = <optimized out>,
+                m_start = 0x5555556555f2 "TEST_CASE",
+                m_size = 9
+              },
+              lineInfo = {
+                file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+                line = 87
+              },
+              capturedExpression = {
+                static s_empty = <optimized out>,
+                m_start = 0x555555657608 "",
+                m_size = 0
+              },
+              resultDisposition = Catch::ResultDisposition::Normal
+            },
+            m_unfinishedSections = std::vector of length 0, capacity 0,
+            m_activeSections = std::vector of length 0, capacity 0,
+            m_trackerContext = {
+              m_rootTracker = std::shared_ptr<Catch::TestCaseTracking::ITracker> (use count 1, weak count 0) = {
+                get() = 0x5555556cf770
+              },
+              m_currentTracker = 0x5555556d0ce0,
+              m_runState = Catch::TestCaseTracking::TrackerContext::Executing
+            },
+            m_fatalConditionhandler = {
+              m_started = true
+            },
+            m_lastAssertionPassed = true,
+            m_shouldReportUnexpected = true,
+            m_includeSuccessfulResults = false
+          },
+          m_tests = std::set with 5 elements = {
+            [0] = 0x5555556eee70,
+            [1] = 0x5555556eef28,
+            [2] = 0x5555556eefe0,
+            [3] = 0x5555556ef098,
+            [4] = 0x5555556ef150
+          },
+          m_matches = std::vector of length 0, capacity 0
+        }
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        ex = @0x0: <incomplete type>
+#9  0x00005555555812f7 in Catch::Session::run (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13505
+        exitCode = 0
+#10 0x00005555555bd343 in Catch::Session::run<char> (this=0x7fffffffd6f8, argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13227
+        returnCode = 0
+#11 0x0000555555599a0f in main (argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:17504
+No locals.
++backtrace full
+#0  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> > (this=0x7fffffffcbf8, __s=0x5555556575e7 "test", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:650
+        __end = 0x7fff00000000 <error: Cannot access memory at address 0x7fff00000000>
+#1  0x000055555559ce95 in ____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
+        rope = {
+          root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+            get() = 0x5555556d1e60
+          }
+        }
+#2  0x00005555555858d7 in Catch::TestInvokerAsFunction::invoke (this=0x5555556cff10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14317
+No locals.
+#3  0x000055555557f498 in Catch::TestCase::invoke (this=0x5555556ef150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14156
+No locals.
+#4  0x000055555557f3a2 in Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13016
+        _ = {
+          m_handler = 0x7fffffffd5d8
+        }
+#5  0x000055555557de75 in Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12989
+        testCaseInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        testCaseSection = {
+          name = "Binary Tree Rope Practice.",
+          description = "",
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          }
+        }
+        prevAssertions = {
+          passed = 26,
+          failed = 0,
+          failedButOk = 0
+        }
+        duration = 0
+        timer = {
+          m_nanoseconds = 1732476744588607960
+        }
+        assertions = {
+          passed = 0,
+          failed = 0,
+          failedButOk = 140737488342544
+        }
+        missingAssertions = false
+        testCaseSectionStats = {
+          _vptr$SectionStats = 0x7fffffffd9a8,
+          sectionInfo = {
+            name = "\340\316\377\377\377\177\000\000\024\355[UUU\000\000X\321\377\377\377\177\000\000X\321\377\377\377\177\000\000\032\000\000\000\000\000\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\000\317\377\377\377\177\000\000\200\vmUUU\000\000\032\000\000\000\000\000\000\000\032\000\000\000\000\000\000\000 \317\377\377\377\177\000\000\030\317\377\377\377\177", '\000' <repeats 11 times>, "\321\377\377\377\177\000\000@\317\377\377\377\177\000\000\203`eUUU\000\000W\000\000\000\000\000\000\000\000m\275\357(\316k\352\320\321\377\377\377\177\000\000"...,
+            description = "",
+            lineInfo = {
+              file = 0x7fffffffd158 "\200\vmUUU",
+              line = 140737488343384
+            }
+          },
+          assertions = {
+            passed = 26,
+            failed = 140737488343384,
+            failedButOk = 27
+          },
+          durationInSeconds = 4.6355706153326264e-310,
+          missingAssertions = 88
+        }
+#6  0x000055555557d1dd in Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12750
+        prevTotals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        redirectedCout = ""
+        redirectedCerr = ""
+        testInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        rootTracker = @0x5555556cf770: {
+          _vptr$ITracker = 0x5555556b7bd0 <vtable for Catch::TestCaseTracking::SectionTracker+16>,
+          m_nameAndLocation = {
+            name = "{root}",
+            location = {
+              file = 0x555555654fb9 "/home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp",
+              line = 14359
+            }
+          }
+        }
+        deltaTotals = {
+          error = 0,
+          assertions = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#7  0x0000555555581fbf in Catch::(anonymous namespace)::TestGroup::execute (this=0x7fffffffd3e0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13343
+        testCase = @0x5555556df460: 0x5555556ef150
+        __range2 = std::set with 5 elements = {
+          [0] = 0x5555556eee70,
+          [1] = 0x5555556eef28,
+          [2] = 0x5555556eefe0,
+          [3] = 0x5555556ef098,
+          [4] = 0x5555556ef150
+        }
+        __begin2 = 0x5555556ef150
+        __end2 = 0x5
+        invalidArgs = std::vector of length 0, capacity 0
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#8  0x000055555558150f in Catch::Session::runInternal (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13549
+        tests = {
+          m_config = std::shared_ptr<Catch::Config> (use count 5, weak count 0) = {
+            get() = 0x5555556d1130
+          },
+          m_context = {
+            <Catch::IResultCapture> = {
+              _vptr$IResultCapture = 0x5555556b7910 <vtable for Catch::RunContext+16>
+            }, 
+            <Catch::IRunner> = {
+              _vptr$IRunner = 0x5555556b79d0 <vtable for Catch::RunContext+208>
+            }, 
+            members of Catch::RunContext:
+            m_runInfo = {
+              name = "testlib"
+            },
+            m_context = @0x5555556eec00,
+            m_activeTestCase = 0x5555556ef150,
+            m_testCaseTracker = 0x5555556d0ce0,
+            m_lastResult = {
+              nullableValue = 0x0,
+              storage = "H\326\377\377\377\177\000\000 \326\377\377\377\177\000\000p\324\377\377\377\177\000\000\235\b\\UUU\000\000H\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\220\324\377\377\377\177\000\000\262\n\\UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\260\324\377\377\377\177\000\000\230I[UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000p\326\377\377\377\177\000\000\351\021XUUU\000\000`\000mUUU\000\000\300\363lUUU\000"
+            },
+            m_config = std::shared_ptr<const Catch::IConfig> (use count 5, weak count 0) = {
+              get() = 0x5555556d1130
+            },
+            m_totals = {
+              error = 0,
+              assertions = {
+                passed = 26,
+                failed = 0,
+                failedButOk = 0
+              },
+              testCases = {
+                passed = 4,
+                failed = 0,
+                failedButOk = 0
+              }
+            },
+            m_reporter = std::unique_ptr<Catch::IStreamingReporter> = {
+              get() = 0x5555556cf900
+            },
+            m_messages = std::vector of length 0, capacity 0,
+            m_messageScopes = std::vector of length 0, capacity 0,
+            m_lastAssertionInfo = {
+              macroName = {
+                static s_empty = <optimized out>,
+                m_start = 0x5555556555f2 "TEST_CASE",
+                m_size = 9
+              },
+              lineInfo = {
+                file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+                line = 87
+              },
+              capturedExpression = {
+                static s_empty = <optimized out>,
+                m_start = 0x555555657608 "",
+                m_size = 0
+              },
+              resultDisposition = Catch::ResultDisposition::Normal
+            },
+            m_unfinishedSections = std::vector of length 0, capacity 0,
+            m_activeSections = std::vector of length 0, capacity 0,
+            m_trackerContext = {
+              m_rootTracker = std::shared_ptr<Catch::TestCaseTracking::ITracker> (use count 1, weak count 0) = {
+                get() = 0x5555556cf770
+              },
+              m_currentTracker = 0x5555556d0ce0,
+              m_runState = Catch::TestCaseTracking::TrackerContext::Executing
+            },
+            m_fatalConditionhandler = {
+              m_started = true
+            },
+            m_lastAssertionPassed = true,
+            m_shouldReportUnexpected = true,
+            m_includeSuccessfulResults = false
+          },
+          m_tests = std::set with 5 elements = {
+            [0] = 0x5555556eee70,
+            [1] = 0x5555556eef28,
+            [2] = 0x5555556eefe0,
+            [3] = 0x5555556ef098,
+            [4] = 0x5555556ef150
+          },
+          m_matches = std::vector of length 0, capacity 0
+        }
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        ex = @0x0: <incomplete type>
+#9  0x00005555555812f7 in Catch::Session::run (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13505
+        exitCode = 0
+#10 0x00005555555bd343 in Catch::Session::run<char> (this=0x7fffffffd6f8, argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13227
+        returnCode = 0
+#11 0x0000555555599a0f in main (argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:17504
+No locals.
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:91
++print *this
+No symbol "this" in current context.
++info locals
+rope = {
+  root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+    get() = 0x5555556d1e60
+  }
+}
++print *rope
+No symbol "operator*" in current context.
++print rope
+$3 = {
+  root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+    get() = 0x5555556d1e60
+  }
+}
++n
+Catch::TestInvokerAsFunction::invoke (this=0x5555556cff10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14318
++n
+Catch::TestCase::invoke (this=0x5555556ef150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14157
++n
+Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13017
++n
+Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12991
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
+Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12751
++n
++n
++n
++n
++n
++n
++break insert_line
+Breakpoint 2 at 0x5555555fe445: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 41.
++continue
+Continuing.
+[Inferior 1 (process 2582) exited normally]
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbe8) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:28
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> > (this=0x7fffffffcbf8, __s=0x5555556575e7 "test", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:650
++n
++n
++n
++n
+
+Breakpoint 2, NewRope::insert_line (this=0x7fffffffcbe8, new_line="test") at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:41
++n
++n
++print *this
+$4 = {
+  root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+    get() = 0x5555556d1e60
+  }
+}
++print line
+No symbol "line" in current context.
++print this->right
+There is no member or method named right.
++print this->root
+$5 = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+  get() = 0x5555556d1e60
+}
++print this->root.line
+There is no member or method named line.
++backtrace full
+#0  NewRope::insert_line (this=0x7fffffffcbe8, new_line="test") at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:47
+        err = @0x7fffffffcbf8: <incomplete type>
+#1  0x000055555559cea4 in ____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
+        rope = {
+          root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+            get() = 0x5555556d1e60
+          }
+        }
+#2  0x00005555555858d7 in Catch::TestInvokerAsFunction::invoke (this=0x5555556cff10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14317
+No locals.
+#3  0x000055555557f498 in Catch::TestCase::invoke (this=0x5555556ef150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14156
+No locals.
+#4  0x000055555557f3a2 in Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13016
+        _ = {
+          m_handler = 0x7fffffffd5d8
+        }
+#5  0x000055555557de75 in Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12989
+        testCaseInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        testCaseSection = {
+          name = "Binary Tree Rope Practice.",
+          description = "",
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          }
+        }
+        prevAssertions = {
+          passed = 26,
+          failed = 0,
+          failedButOk = 0
+        }
+        duration = 0
+        timer = {
+          m_nanoseconds = 1732476971520483334
+        }
+        assertions = {
+          passed = 0,
+          failed = 0,
+          failedButOk = 140737488342544
+        }
+        missingAssertions = false
+        testCaseSectionStats = {
+          _vptr$SectionStats = 0x7fffffffd9a8,
+          sectionInfo = {
+            name = "\340\316\377\377\377\177\000\000\024\355[UUU\000\000X\321\377\377\377\177\000\000X\321\377\377\377\177\000\000\032\000\000\000\000\000\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\000\317\377\377\377\177\000\000\200\vmUUU\000\000\032\000\000\000\000\000\000\000\032\000\000\000\000\000\000\000 \317\377\377\377\177\000\000\030\317\377\377\377\177", '\000' <repeats 11 times>, "\321\377\377\377\177\000\000@\317\377\377\377\177\000\000\203`eUUU\000\000W\000\000\000\000\000\000\000\000\223\320\037\026\370\373\351\320\321\377\377\377\177\000\000"...,
+            description = "",
+            lineInfo = {
+              file = 0x7fffffffd158 "\200\vmUUU",
+              line = 140737488343384
+            }
+          },
+          assertions = {
+            passed = 26,
+            failed = 140737488343384,
+            failedButOk = 27
+          },
+          durationInSeconds = 4.6355706153326264e-310,
+          missingAssertions = 88
+        }
+#6  0x000055555557d1dd in Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12750
+        prevTotals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        redirectedCout = ""
+        redirectedCerr = ""
+        testInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        rootTracker = @0x5555556cf770: {
+          _vptr$ITracker = 0x5555556b7bd0 <vtable for Catch::TestCaseTracking::SectionTracker+16>,
+          m_nameAndLocation = {
+            name = "{root}",
+            location = {
+              file = 0x555555654fb9 "/home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp",
+              line = 14359
+            }
+          }
+        }
+        deltaTotals = {
+          error = 0,
+          assertions = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#7  0x0000555555581fbf in Catch::(anonymous namespace)::TestGroup::execute (this=0x7fffffffd3e0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13343
+        testCase = @0x5555556df460: 0x5555556ef150
+        __range2 = std::set with 5 elements = {
+          [0] = 0x5555556eee70,
+          [1] = 0x5555556eef28,
+          [2] = 0x5555556eefe0,
+          [3] = 0x5555556ef098,
+          [4] = 0x5555556ef150
+        }
+        __begin2 = 0x5555556ef150
+        __end2 = 0x5
+        invalidArgs = std::vector of length 0, capacity 0
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#8  0x000055555558150f in Catch::Session::runInternal (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13549
+        tests = {
+          m_config = std::shared_ptr<Catch::Config> (use count 5, weak count 0) = {
+            get() = 0x5555556d1130
+          },
+          m_context = {
+            <Catch::IResultCapture> = {
+              _vptr$IResultCapture = 0x5555556b7910 <vtable for Catch::RunContext+16>
+            }, 
+            <Catch::IRunner> = {
+              _vptr$IRunner = 0x5555556b79d0 <vtable for Catch::RunContext+208>
+            }, 
+            members of Catch::RunContext:
+            m_runInfo = {
+              name = "testlib"
+            },
+            m_context = @0x5555556eec00,
+            m_activeTestCase = 0x5555556ef150,
+            m_testCaseTracker = 0x5555556d0ce0,
+            m_lastResult = {
+              nullableValue = 0x0,
+              storage = "H\326\377\377\377\177\000\000 \326\377\377\377\177\000\000p\324\377\377\377\177\000\000\235\b\\UUU\000\000H\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\220\324\377\377\377\177\000\000\262\n\\UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\260\324\377\377\377\177\000\000\230I[UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000p\326\377\377\377\177\000\000\351\021XUUU\000\000`\000mUUU\000\000\300\363lUUU\000"
+            },
+            m_config = std::shared_ptr<const Catch::IConfig> (use count 5, weak count 0) = {
+              get() = 0x5555556d1130
+            },
+            m_totals = {
+              error = 0,
+              assertions = {
+                passed = 26,
+                failed = 0,
+                failedButOk = 0
+              },
+              testCases = {
+                passed = 4,
+                failed = 0,
+                failedButOk = 0
+              }
+            },
+            m_reporter = std::unique_ptr<Catch::IStreamingReporter> = {
+              get() = 0x5555556cf900
+            },
+            m_messages = std::vector of length 0, capacity 0,
+            m_messageScopes = std::vector of length 0, capacity 0,
+            m_lastAssertionInfo = {
+              macroName = {
+                static s_empty = <optimized out>,
+                m_start = 0x5555556555f2 "TEST_CASE",
+                m_size = 9
+              },
+              lineInfo = {
+                file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+                line = 87
+              },
+              capturedExpression = {
+                static s_empty = <optimized out>,
+                m_start = 0x555555657608 "",
+                m_size = 0
+              },
+              resultDisposition = Catch::ResultDisposition::Normal
+            },
+            m_unfinishedSections = std::vector of length 0, capacity 0,
+            m_activeSections = std::vector of length 0, capacity 0,
+            m_trackerContext = {
+              m_rootTracker = std::shared_ptr<Catch::TestCaseTracking::ITracker> (use count 1, weak count 0) = {
+                get() = 0x5555556cf770
+              },
+              m_currentTracker = 0x5555556d0ce0,
+              m_runState = Catch::TestCaseTracking::TrackerContext::Executing
+            },
+            m_fatalConditionhandler = {
+              m_started = true
+            },
+            m_lastAssertionPassed = true,
+            m_shouldReportUnexpected = true,
+            m_includeSuccessfulResults = false
+          },
+          m_tests = std::set with 5 elements = {
+            [0] = 0x5555556eee70,
+            [1] = 0x5555556eef28,
+            [2] = 0x5555556eefe0,
+            [3] = 0x5555556ef098,
+            [4] = 0x5555556ef150
+          },
+          m_matches = std::vector of length 0, capacity 0
+        }
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        ex = @0x0: <incomplete type>
+#9  0x00005555555812f7 in Catch::Session::run (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13505
+        exitCode = 0
+#10 0x00005555555bd343 in Catch::Session::run<char> (this=0x7fffffffd6f8, argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13227
+        returnCode = 0
+#11 0x0000555555599a0f in main (argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:17504
+No locals.
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::length (this=0x7fffffffcbf8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1084
++n
+NewRope::insert_line (this=0x7fffffffcbe8, new_line="test") at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:48
++backtrace full
+#0  NewRope::insert_line (this=0x7fffffffcbe8, new_line="test") at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:48
+        err = @0x7fffffffcbf8: <incomplete type>
+#1  0x000055555559cea4 in ____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
+        rope = {
+          root = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+            get() = 0x5555556d1e60
+          }
+        }
+#2  0x00005555555858d7 in Catch::TestInvokerAsFunction::invoke (this=0x5555556cff10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14317
+No locals.
+#3  0x000055555557f498 in Catch::TestCase::invoke (this=0x5555556ef150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14156
+No locals.
+#4  0x000055555557f3a2 in Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13016
+        _ = {
+          m_handler = 0x7fffffffd5d8
+        }
+#5  0x000055555557de75 in Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12989
+        testCaseInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        testCaseSection = {
+          name = "Binary Tree Rope Practice.",
+          description = "",
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          }
+        }
+        prevAssertions = {
+          passed = 26,
+          failed = 0,
+          failedButOk = 0
+        }
+        duration = 0
+        timer = {
+          m_nanoseconds = 1732476971520483334
+        }
+        assertions = {
+          passed = 0,
+          failed = 0,
+          failedButOk = 140737488342544
+        }
+        missingAssertions = false
+        testCaseSectionStats = {
+          _vptr$SectionStats = 0x7fffffffd9a8,
+          sectionInfo = {
+            name = "\340\316\377\377\377\177\000\000\024\355[UUU\000\000X\321\377\377\377\177\000\000X\321\377\377\377\177\000\000\032\000\000\000\000\000\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200\vmUUU\000\000X\321\377\377\377\177\000\000\000\317\377\377\377\177\000\000\200\vmUUU\000\000\032\000\000\000\000\000\000\000\032\000\000\000\000\000\000\000 \317\377\377\377\177\000\000\030\317\377\377\377\177", '\000' <repeats 11 times>, "\321\377\377\377\177\000\000@\317\377\377\377\177\000\000\203`eUUU\000\000W\000\000\000\000\000\000\000\000\223\320\037\026\370\373\351\320\321\377\377\377\177\000\000"...,
+            description = "",
+            lineInfo = {
+              file = 0x7fffffffd158 "\200\vmUUU",
+              line = 140737488343384
+            }
+          },
+          assertions = {
+            passed = 26,
+            failed = 140737488343384,
+            failedButOk = 27
+          },
+          durationInSeconds = 4.6355706153326264e-310,
+          missingAssertions = 88
+        }
+#6  0x000055555557d1dd in Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12750
+        prevTotals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        redirectedCout = ""
+        redirectedCerr = ""
+        testInfo = @0x5555556ef150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        rootTracker = @0x5555556cf770: {
+          _vptr$ITracker = 0x5555556b7bd0 <vtable for Catch::TestCaseTracking::SectionTracker+16>,
+          m_nameAndLocation = {
+            name = "{root}",
+            location = {
+              file = 0x555555654fb9 "/home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp",
+              line = 14359
+            }
+          }
+        }
+        deltaTotals = {
+          error = 0,
+          assertions = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#7  0x0000555555581fbf in Catch::(anonymous namespace)::TestGroup::execute (this=0x7fffffffd3e0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13343
+        testCase = @0x5555556df460: 0x5555556ef150
+        __range2 = std::set with 5 elements = {
+          [0] = 0x5555556eee70,
+          [1] = 0x5555556eef28,
+          [2] = 0x5555556eefe0,
+          [3] = 0x5555556ef098,
+          [4] = 0x5555556ef150
+        }
+        __begin2 = 0x5555556ef150
+        __end2 = 0x5
+        invalidArgs = std::vector of length 0, capacity 0
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#8  0x000055555558150f in Catch::Session::runInternal (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13549
+        tests = {
+          m_config = std::shared_ptr<Catch::Config> (use count 5, weak count 0) = {
+            get() = 0x5555556d1130
+          },
+          m_context = {
+            <Catch::IResultCapture> = {
+              _vptr$IResultCapture = 0x5555556b7910 <vtable for Catch::RunContext+16>
+            }, 
+            <Catch::IRunner> = {
+              _vptr$IRunner = 0x5555556b79d0 <vtable for Catch::RunContext+208>
+            }, 
+            members of Catch::RunContext:
+            m_runInfo = {
+              name = "testlib"
+            },
+            m_context = @0x5555556eec00,
+            m_activeTestCase = 0x5555556ef150,
+            m_testCaseTracker = 0x5555556d0ce0,
+            m_lastResult = {
+              nullableValue = 0x0,
+              storage = "H\326\377\377\377\177\000\000 \326\377\377\377\177\000\000p\324\377\377\377\177\000\000\235\b\\UUU\000\000H\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\220\324\377\377\377\177\000\000\262\n\\UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\260\324\377\377\377\177\000\000\230I[UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000p\326\377\377\377\177\000\000\351\021XUUU\000\000`\000mUUU\000\000\300\363lUUU\000"
+            },
+            m_config = std::shared_ptr<const Catch::IConfig> (use count 5, weak count 0) = {
+              get() = 0x5555556d1130
+            },
+            m_totals = {
+              error = 0,
+              assertions = {
+                passed = 26,
+                failed = 0,
+                failedButOk = 0
+              },
+              testCases = {
+                passed = 4,
+                failed = 0,
+                failedButOk = 0
+              }
+            },
+            m_reporter = std::unique_ptr<Catch::IStreamingReporter> = {
+              get() = 0x5555556cf900
+            },
+            m_messages = std::vector of length 0, capacity 0,
+            m_messageScopes = std::vector of length 0, capacity 0,
+            m_lastAssertionInfo = {
+              macroName = {
+                static s_empty = <optimized out>,
+                m_start = 0x5555556555f2 "TEST_CASE",
+                m_size = 9
+              },
+              lineInfo = {
+                file = 0x555555656083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+                line = 87
+              },
+              capturedExpression = {
+                static s_empty = <optimized out>,
+                m_start = 0x555555657608 "",
+                m_size = 0
+              },
+              resultDisposition = Catch::ResultDisposition::Normal
+            },
+            m_unfinishedSections = std::vector of length 0, capacity 0,
+            m_activeSections = std::vector of length 0, capacity 0,
+            m_trackerContext = {
+              m_rootTracker = std::shared_ptr<Catch::TestCaseTracking::ITracker> (use count 1, weak count 0) = {
+                get() = 0x5555556cf770
+              },
+              m_currentTracker = 0x5555556d0ce0,
+              m_runState = Catch::TestCaseTracking::TrackerContext::Executing
+            },
+            m_fatalConditionhandler = {
+              m_started = true
+            },
+            m_lastAssertionPassed = true,
+            m_shouldReportUnexpected = true,
+            m_includeSuccessfulResults = false
+          },
+          m_tests = std::set with 5 elements = {
+            [0] = 0x5555556eee70,
+            [1] = 0x5555556eef28,
+            [2] = 0x5555556eefe0,
+            [3] = 0x5555556ef098,
+            [4] = 0x5555556ef150
+          },
+          m_matches = std::vector of length 0, capacity 0
+        }
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        ex = @0x0: <incomplete type>
+#9  0x00005555555812f7 in Catch::Session::run (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13505
+        exitCode = 0
+#10 0x00005555555bd343 in Catch::Session::run<char> (this=0x7fffffffd6f8, argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13227
+        returnCode = 0
+#11 0x0000555555599a0f in main (argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:17504
+No locals.
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 31.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbe8) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:31
++n
++s
+RopeNode::RopeNode (this=0x5555556eaa90, rope_root=true) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:16
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::unique_ptr<std::default_delete<RopeNode>, void>(decltype(nullptr)) (this=0x5555556eaa98) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:355
++print *this
+$1 = std::unique_ptr<RopeNode> = {
+  get() = 0x0
+}
++n
+RopeNode::RopeNode (this=0x5555556eaa90, rope_root=true) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:15
++print *this
+$2 = {
+  root_node = true,
+  next_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 2338053702200485232,
+  line = <error: Cannot access memory at address 0x64616f6c7265766f>
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 31.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbe8) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:31
++n
++n
++n
++print *this
+$1 = {
+  root_node = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+    get() = 0x5555556eba90
+  }
+}
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
++print *this
+No symbol "this" in current context.
++print rope
+$2 = {
+  root_node = std::shared_ptr<RopeNode> (use count 1, weak count 0) = {
+    get() = 0x5555556eba90
+  }
+}
++print *rope->root_node
+$3 = {
+  root_node = true,
+  next_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 0,
+  line = ""
+}
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x18) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 31.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbe8) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:31
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> > (this=0x7fffffffcbf8, __s=0x5555556575e7 "test", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:650
++n
++n
++n
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x18) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++n
+Catch::handleSignal (sig=0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:10896
++n
++n
++n
++n
++info locals
+__range1 = @0x5555556bd010: {{
+    id = 2,
+    name = 0x555555656958 "SIGINT - Terminal interrupt signal"
+  }, {
+    id = 4,
+    name = 0x55555565697b "SIGILL - Illegal instruction signal"
+  }, {
+    id = 8,
+    name = 0x55555565699f "SIGFPE - Floating point error signal"
+  }, {
+    id = 11,
+    name = 0x5555556569c4 "SIGSEGV - Segmentation violation signal"
+  }, {
+    id = 15,
+    name = 0x5555556569ec "SIGTERM - Termination request signal"
+  }, {
+    id = 6,
+    name = 0x555555656a11 "SIGABRT - Abort (abnormal termination) signal"
+  }}
+__begin1 = 0x5555556bd010 <Catch::signalDefs>
+__end1 = 0x5555556bd070 <Catch::trim(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)::whitespaceChars>
+name = 0x555555656947 "<unknown signal>"
++n
++n
++n
++n
++n
++n
++n
++n
++info locals
+name = 0x5555556569c4 "SIGSEGV - Segmentation violation signal"
++exit
+Not confirmed.
++stop
++reset
+Undefined command: "reset".  Try "help".
++restart
+Requires argument (checkpoint id to restart)
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 31.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbe8) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:31
++print *this
+$1 = {
+  root_node = std::shared_ptr<RopeNode> (empty) = {
+    get() = 0x0
+  }
+}
++print *this->root_node
+Cannot access memory at address 0x0
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 32.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbf0) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:32
++n
++n
++n
++info locals
+No locals.
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556e9a90
+  }
+}
++print *this->root_node
+$2 = {
+  root_node = true,
+  next_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 0,
+  line = ""
+}
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:90
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string<std::allocator<char> > (this=0x7fffffffcbf8, __s=0x5555556575e7 "test", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:650
++info locals
+__end = 0x555555575180 <Catch::handleSignal(int)> "\363\017\036\372UH\211\345H\203\3540\211}\374H\215\005\261\027\016"
++n
++n
++n
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x18) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++print *this->next_node
+There is no member or method named next_node.
++print *this->root_node
+There is no member or method named root_node.
++n
+Catch::handleSignal (sig=0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:10896
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x18) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x18) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++n
+
+Program terminated with signal SIGSEGV, Segmentation fault.
+The program no longer exists.
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 44.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbf0) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:44
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  }
+}
++print *this->root_node
+Cannot access memory at address 0x0
++n
++n
++n
++print *this->root_node
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556dbee0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d2e90
+  },
+  data = "",
+  root_node = true,
+  weight = 0
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xaa2f5: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp, line 44.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffcbf0) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/NewRope.hpp:44
++n
++n
++n
++print *this->root_node->left
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "",
+  root_node = false,
+  weight = 0
+}
++print *this->root_node->right
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "",
+  root_node = false,
+  weight = 0
+}
++quit
+Reading symbols from ./build/tests/testlib...
++break operator[]
+Breakpoint 1 at 0x5aa2c: operator[]. (30 locations)
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++n
++n
++n
++n
++n
++n
++n
++n
++n
+Catch::makeTestCase (_testCase=0x5555556d1650, _className="", nameAndTags=..., _lineInfo=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14062
++n
++n
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd368, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++nest
+Undefined command: "nest".  Try "help".
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::enforceNotReservedTag (tag="main", _lineInfo=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14038
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::makeTestCase (_testCase=0x5555556d16c0, _className="", nameAndTags=..., _lineInfo=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14073
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd368, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::parseSpecialTag (tag="main") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14015
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::(anonymous namespace)::enforceNotReservedTag (tag="main", _lineInfo=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14038
++continue
+Continuing.
+
+Breakpoint 1.8, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator[] (this=0x7fffffffd6c8, __pos=0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1249
++n
++n
+Catch::makeTestCase (_testCase=0x5555556d1ae0, _className="", nameAndTags=..., _lineInfo=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14073
++exit
+Reading symbols from ./build/tests/testlib...
++break _insert
+Breakpoint 1 at 0xfebba: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 35.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_insert (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}, str="Hello ") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:35
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  }
+}
++quit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xfea58: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 20.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:20
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:91
++n
++n
++s
+NewRope::insert (this=0x7fffffffc978, str="Hello ") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:72
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::unique_ptr (this=0x7fffffffc7c8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:360
++n
+NewRope::insert (this=0x7fffffffc978, str="Hello ") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:73
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:94
++n
++s
+NewRope::print (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:76
++print *this
+$2 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++s
+NewRope::_print (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++backtrace full
+#0  NewRope::_print (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
+No locals.
+#1  0x000055555565311c in NewRope::print (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:76
+No locals.
+#2  0x000055555559cfcc in ____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:95
+        test_buffer = {
+          temp_buffer = Python Exception <class 'IndexError'>: list index out of range
+<incomplete type>,
+          backup_buffer = 0x7ffff7f9cd60
+        }
+        rope = {
+          root_node = std::unique_ptr<RopeNode> = {
+            get() = 0x5555556d3e60
+          }
+        }
+        one = "Hello "
+        two = "world!"
+#3  0x0000555555585917 in Catch::TestInvokerAsFunction::invoke (this=0x5555556d1f10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14317
+No locals.
+#4  0x000055555557f4d8 in Catch::TestCase::invoke (this=0x5555556f1150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14156
+No locals.
+#5  0x000055555557f3e2 in Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13016
+        _ = {
+          m_handler = 0x7fffffffd5d8
+        }
+#6  0x000055555557deb5 in Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12989
+        testCaseInfo = @0x5555556f1150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        testCaseSection = {
+          name = "Binary Tree Rope Practice.",
+          description = "",
+          lineInfo = {
+            file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          }
+        }
+        prevAssertions = {
+          passed = 26,
+          failed = 0,
+          failedButOk = 0
+        }
+        duration = 0
+        timer = {
+          m_nanoseconds = 1732509435428185068
+        }
+        assertions = {
+          passed = 0,
+          failed = 0,
+          failedButOk = 140737488342544
+        }
+        missingAssertions = false
+        testCaseSectionStats = {
+          _vptr$SectionStats = 0x7fffffffd9a8,
+          sectionInfo = {
+            name = "\340\316\377\377\377\177\000\000\344\362[UUU\000\000X\321\377\377\377\177\000\000X\321\377\377\377\177\000\000\032\000\000\000\000\000\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200+mUUU\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200+mUUU\000\000X\321\377\377\377\177\000\000\000\317\377\377\377\177\000\000\200+mUUU\000\000\032\000\000\000\000\000\000\000\032\000\000\000\000\000\000\000 \317\377\377\377\177\000\000\030\317\377\377\377\177", '\000' <repeats 11 times>, "\321\377\377\377\177\000\000@\317\377\377\377\177\000\000\203peUUU\000\000W\000\000\000\000\000\000\000\000E\a1\2634,6\320\321\377\377\377\177\000\000"...,
+            description = "",
+            lineInfo = {
+              file = 0x7fffffffd158 "\200+mUUU",
+              line = 140737488343384
+            }
+          },
+          assertions = {
+            passed = 26,
+            failed = 140737488343384,
+            failedButOk = 27
+          },
+          durationInSeconds = 4.635570615737365e-310,
+          missingAssertions = 88
+        }
+#7  0x000055555557d21d in Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12750
+        prevTotals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        redirectedCout = ""
+        redirectedCerr = ""
+        testInfo = @0x5555556f1150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        rootTracker = @0x5555556d1770: {
+          _vptr$ITracker = 0x5555556b9bc0 <vtable for Catch::TestCaseTracking::SectionTracker+16>,
+          m_nameAndLocation = {
+            name = "{root}",
+            location = {
+              file = 0x555555655fb9 "/home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp",
+              line = 14359
+            }
+          }
+        }
+        deltaTotals = {
+          error = 0,
+          assertions = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#8  0x0000555555581fff in Catch::(anonymous namespace)::TestGroup::execute (this=0x7fffffffd3e0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13343
+        testCase = @0x5555556e1460: 0x5555556f1150
+        __range2 = std::set with 5 elements = {
+          [0] = 0x5555556f0e70,
+          [1] = 0x5555556f0f28,
+          [2] = 0x5555556f0fe0,
+          [3] = 0x5555556f1098,
+          [4] = 0x5555556f1150
+        }
+        __begin2 = 0x5555556f1150
+        __end2 = 0x5
+        invalidArgs = std::vector of length 0, capacity 0
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#9  0x000055555558154f in Catch::Session::runInternal (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13549
+        tests = {
+          m_config = std::shared_ptr<Catch::Config> (use count 5, weak count 0) = {
+            get() = 0x5555556d3130
+          },
+          m_context = {
+            <Catch::IResultCapture> = {
+              _vptr$IResultCapture = 0x5555556b9900 <vtable for Catch::RunContext+16>
+            }, 
+            <Catch::IRunner> = {
+              _vptr$IRunner = 0x5555556b99c0 <vtable for Catch::RunContext+208>
+            }, 
+            members of Catch::RunContext:
+            m_runInfo = {
+              name = "testlib"
+            },
+            m_context = @0x5555556f0c00,
+            m_activeTestCase = 0x5555556f1150,
+            m_testCaseTracker = 0x5555556d2ce0,
+            m_lastResult = {
+              nullableValue = 0x0,
+              storage = "H\326\377\377\377\177\000\000 \326\377\377\377\177\000\000p\324\377\377\377\177\000\000m\016\\UUU\000\000H\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\220\324\377\377\377\177\000\000\202\020\\UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\260\324\377\377\377\177\000\000hO[UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000p\326\377\377\377\177\000\000)\022XUUU\000\000` mUUU\000\000\300\023mUUU\000"
+            },
+            m_config = std::shared_ptr<const Catch::IConfig> (use count 5, weak count 0) = {
+              get() = 0x5555556d3130
+            },
+            m_totals = {
+              error = 0,
+              assertions = {
+                passed = 26,
+                failed = 0,
+                failedButOk = 0
+              },
+              testCases = {
+                passed = 4,
+                failed = 0,
+                failedButOk = 0
+              }
+            },
+            m_reporter = std::unique_ptr<Catch::IStreamingReporter> = {
+              get() = 0x5555556d1900
+            },
+            m_messages = std::vector of length 0, capacity 0,
+            m_messageScopes = std::vector of length 0, capacity 0,
+            m_lastAssertionInfo = {
+              macroName = {
+                static s_empty = <optimized out>,
+                m_start = 0x5555556565f2 "TEST_CASE",
+                m_size = 9
+              },
+              lineInfo = {
+                file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+                line = 87
+              },
+              capturedExpression = {
+                static s_empty = <optimized out>,
+                m_start = 0x555555659540 "",
+                m_size = 0
+              },
+              resultDisposition = Catch::ResultDisposition::Normal
+            },
+            m_unfinishedSections = std::vector of length 0, capacity 0,
+            m_activeSections = std::vector of length 0, capacity 0,
+            m_trackerContext = {
+              m_rootTracker = std::shared_ptr<Catch::TestCaseTracking::ITracker> (use count 1, weak count 0) = {
+                get() = 0x5555556d1770
+              },
+              m_currentTracker = 0x5555556d2ce0,
+              m_runState = Catch::TestCaseTracking::TrackerContext::Executing
+            },
+            m_fatalConditionhandler = {
+              m_started = true
+            },
+            m_lastAssertionPassed = true,
+            m_shouldReportUnexpected = true,
+            m_includeSuccessfulResults = false
+          },
+          m_tests = std::set with 5 elements = {
+            [0] = 0x5555556f0e70,
+            [1] = 0x5555556f0f28,
+            [2] = 0x5555556f0fe0,
+            [3] = 0x5555556f1098,
+            [4] = 0x5555556f1150
+          },
+          m_matches = std::vector of length 0, capacity 0
+        }
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        ex = @0x0: <incomplete type>
+#10 0x0000555555581337 in Catch::Session::run (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13505
+        exitCode = 0
+#11 0x00005555555bd913 in Catch::Session::run<char> (this=0x7fffffffd6f8, argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13227
+        returnCode = 0
+#12 0x0000555555599a4f in main (argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:17504
+No locals.
++backtrace full
+#0  NewRope::_print (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
+No locals.
+#1  0x000055555565311c in NewRope::print (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:76
+No locals.
+#2  0x000055555559cfcc in ____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:95
+        test_buffer = {
+          temp_buffer = Python Exception <class 'IndexError'>: list index out of range
+<incomplete type>,
+          backup_buffer = 0x7ffff7f9cd60
+        }
+        rope = {
+          root_node = std::unique_ptr<RopeNode> = {
+            get() = 0x5555556d3e60
+          }
+        }
+        one = "Hello "
+        two = "world!"
+#3  0x0000555555585917 in Catch::TestInvokerAsFunction::invoke (this=0x5555556d1f10) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14317
+No locals.
+#4  0x000055555557f4d8 in Catch::TestCase::invoke (this=0x5555556f1150) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:14156
+No locals.
+#5  0x000055555557f3e2 in Catch::RunContext::invokeActiveTestCase (this=0x7fffffffd3f0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13016
+        _ = {
+          m_handler = 0x7fffffffd5d8
+        }
+#6  0x000055555557deb5 in Catch::RunContext::runCurrentTest (this=0x7fffffffd3f0, redirectedCout="", redirectedCerr="") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12989
+        testCaseInfo = @0x5555556f1150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        testCaseSection = {
+          name = "Binary Tree Rope Practice.",
+          description = "",
+          lineInfo = {
+            file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          }
+        }
+        prevAssertions = {
+          passed = 26,
+          failed = 0,
+          failedButOk = 0
+        }
+        duration = 0
+        timer = {
+          m_nanoseconds = 1732509435428185068
+        }
+        assertions = {
+          passed = 0,
+          failed = 0,
+          failedButOk = 140737488342544
+        }
+        missingAssertions = false
+        testCaseSectionStats = {
+          _vptr$SectionStats = 0x7fffffffd9a8,
+          sectionInfo = {
+            name = "\340\316\377\377\377\177\000\000\344\362[UUU\000\000X\321\377\377\377\177\000\000X\321\377\377\377\177\000\000\032\000\000\000\000\000\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200+mUUU\000\000X\321\377\377\377\177\000\000\033\000\000\000\000\000\000\000\200+mUUU\000\000X\321\377\377\377\177\000\000\000\317\377\377\377\177\000\000\200+mUUU\000\000\032\000\000\000\000\000\000\000\032\000\000\000\000\000\000\000 \317\377\377\377\177\000\000\030\317\377\377\377\177", '\000' <repeats 11 times>, "\321\377\377\377\177\000\000@\317\377\377\377\177\000\000\203peUUU\000\000W\000\000\000\000\000\000\000\000E\a1\2634,6\320\321\377\377\377\177\000\000"...,
+            description = "",
+            lineInfo = {
+              file = 0x7fffffffd158 "\200+mUUU",
+              line = 140737488343384
+            }
+          },
+          assertions = {
+            passed = 26,
+            failed = 140737488343384,
+            failedButOk = 27
+          },
+          durationInSeconds = 4.635570615737365e-310,
+          missingAssertions = 88
+        }
+#7  0x000055555557d21d in Catch::RunContext::runTest (this=0x7fffffffd3f0, testCase=...) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:12750
+        prevTotals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        redirectedCout = ""
+        redirectedCerr = ""
+        testInfo = @0x5555556f1150: {
+          name = "Binary Tree Rope Practice.",
+          className = "",
+          description = "",
+          tags = std::vector of length 1, capacity 1 = {"main"},
+          lcaseTags = std::vector of length 1, capacity 1 = {"main"},
+          lineInfo = {
+            file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+            line = 87
+          },
+          properties = Catch::TestCaseInfo::None
+        }
+        rootTracker = @0x5555556d1770: {
+          _vptr$ITracker = 0x5555556b9bc0 <vtable for Catch::TestCaseTracking::SectionTracker+16>,
+          m_nameAndLocation = {
+            name = "{root}",
+            location = {
+              file = 0x555555655fb9 "/home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp",
+              line = 14359
+            }
+          }
+        }
+        deltaTotals = {
+          error = 0,
+          assertions = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 1,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#8  0x0000555555581fff in Catch::(anonymous namespace)::TestGroup::execute (this=0x7fffffffd3e0) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13343
+        testCase = @0x5555556e1460: 0x5555556f1150
+        __range2 = std::set with 5 elements = {
+          [0] = 0x5555556f0e70,
+          [1] = 0x5555556f0f28,
+          [2] = 0x5555556f0fe0,
+          [3] = 0x5555556f1098,
+          [4] = 0x5555556f1150
+        }
+        __begin2 = 0x5555556f1150
+        __end2 = 0x5
+        invalidArgs = std::vector of length 0, capacity 0
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+#9  0x000055555558154f in Catch::Session::runInternal (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13549
+        tests = {
+          m_config = std::shared_ptr<Catch::Config> (use count 5, weak count 0) = {
+            get() = 0x5555556d3130
+          },
+          m_context = {
+            <Catch::IResultCapture> = {
+              _vptr$IResultCapture = 0x5555556b9900 <vtable for Catch::RunContext+16>
+            }, 
+            <Catch::IRunner> = {
+              _vptr$IRunner = 0x5555556b99c0 <vtable for Catch::RunContext+208>
+            }, 
+            members of Catch::RunContext:
+            m_runInfo = {
+              name = "testlib"
+            },
+            m_context = @0x5555556f0c00,
+            m_activeTestCase = 0x5555556f1150,
+            m_testCaseTracker = 0x5555556d2ce0,
+            m_lastResult = {
+              nullableValue = 0x0,
+              storage = "H\326\377\377\377\177\000\000 \326\377\377\377\177\000\000p\324\377\377\377\177\000\000m\016\\UUU\000\000H\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\220\324\377\377\377\177\000\000\202\020\\UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000\260\324\377\377\377\177\000\000hO[UUU\000\000\b\326\377\377\377\177\000\000\b\326\377\377\377\177\000\000p\326\377\377\377\177\000\000)\022XUUU\000\000` mUUU\000\000\300\023mUUU\000"
+            },
+            m_config = std::shared_ptr<const Catch::IConfig> (use count 5, weak count 0) = {
+              get() = 0x5555556d3130
+            },
+            m_totals = {
+              error = 0,
+              assertions = {
+                passed = 26,
+                failed = 0,
+                failedButOk = 0
+              },
+              testCases = {
+                passed = 4,
+                failed = 0,
+                failedButOk = 0
+              }
+            },
+            m_reporter = std::unique_ptr<Catch::IStreamingReporter> = {
+              get() = 0x5555556d1900
+            },
+            m_messages = std::vector of length 0, capacity 0,
+            m_messageScopes = std::vector of length 0, capacity 0,
+            m_lastAssertionInfo = {
+              macroName = {
+                static s_empty = <optimized out>,
+                m_start = 0x5555556565f2 "TEST_CASE",
+                m_size = 9
+              },
+              lineInfo = {
+                file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+                line = 87
+              },
+              capturedExpression = {
+                static s_empty = <optimized out>,
+                m_start = 0x555555659540 "",
+                m_size = 0
+              },
+              resultDisposition = Catch::ResultDisposition::Normal
+            },
+            m_unfinishedSections = std::vector of length 0, capacity 0,
+            m_activeSections = std::vector of length 0, capacity 0,
+            m_trackerContext = {
+              m_rootTracker = std::shared_ptr<Catch::TestCaseTracking::ITracker> (use count 1, weak count 0) = {
+                get() = 0x5555556d1770
+              },
+              m_currentTracker = 0x5555556d2ce0,
+              m_runState = Catch::TestCaseTracking::TrackerContext::Executing
+            },
+            m_fatalConditionhandler = {
+              m_started = true
+            },
+            m_lastAssertionPassed = true,
+            m_shouldReportUnexpected = true,
+            m_includeSuccessfulResults = false
+          },
+          m_tests = std::set with 5 elements = {
+            [0] = 0x5555556f0e70,
+            [1] = 0x5555556f0f28,
+            [2] = 0x5555556f0fe0,
+            [3] = 0x5555556f1098,
+            [4] = 0x5555556f1150
+          },
+          m_matches = std::vector of length 0, capacity 0
+        }
+        totals = {
+          error = 0,
+          assertions = {
+            passed = 26,
+            failed = 0,
+            failedButOk = 0
+          },
+          testCases = {
+            passed = 4,
+            failed = 0,
+            failedButOk = 0
+          }
+        }
+        ex = @0x0: <incomplete type>
+#10 0x0000555555581337 in Catch::Session::run (this=0x7fffffffd6f8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13505
+        exitCode = 0
+#11 0x00005555555bd913 in Catch::Session::run<char> (this=0x7fffffffd6f8, argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13227
+        returnCode = 0
+#12 0x0000555555599a4f in main (argc=1, argv=0x7fffffffd9a8) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:17504
+No locals.
++n
++print *this
+$3 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
++n
++print *this
+$4 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
++n
+NewRope::print (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:77
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:97
++n
++s
+operator"" _catch_sr(char const*, unsigned long) (rawChars=0x555555658369 "REQUIRE", size=7) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:684
++n
+[Inferior 1 (process 16936) exited with code 01]
++print *this
+No symbol "this" in current context.
++exit
+Reading symbols from ./build/tests/testlib...
++break _insert
+Breakpoint 1 at 0xfebba: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 35.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_insert (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}, str="Hello ") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:35
++n
++n
++n
+
+Breakpoint 1, NewRope::_insert (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}, str="Hello ") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:35
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  }
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break NewRope
+Breakpoint 1 at 0xfea58: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 20.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::NewRope (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:20
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x7fffffffc9c0
+  }
+}
++n
++n
++n
++print *this
+$2 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:91
++n
++n
++s
+NewRope::insert (this=0x7fffffffc978, str="Hello ") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:72
++print *this
+$3 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:94
++s
+NewRope::insert (this=0x7fffffffc978, str="world!") at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:72
++print *this
+$4 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:95
++print *this
+No symbol "this" in current context.
++s
+NewRope::print (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:76
++print *this
+$5 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++s
+NewRope::_print (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++print *this
+$6 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc978) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++print *this
+$7 = std::unique_ptr<RopeNode> = {
+  get() = 0x5555556d3e60
+}
++n
+NewRope::_print (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:50
++print *this
+$8 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc978) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_print (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:53
++print *this
+$9 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++print *node
+$10 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "",
+  root_node = true,
+  weight = 0
+}
++n
+NewRope::print (this=0x7fffffffc978) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:77
++n
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:97
++s
+operator"" _catch_sr(char const*, unsigned long) (rawChars=0x555555658369 "REQUIRE", size=7) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:684
++n
+____C_A_T_C_H____T_E_S_T____8 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:98
++s
+operator"" _catch_sr(char const*, unsigned long) (rawChars=0x555555658369 "REQUIRE", size=7) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:684
++print *this
+No symbol "this" in current context.
++print *rawChars
+$11 = 82 'R'
++s
+Catch::StringRef::StringRef (this=0x7fffffffc7c8, rawChars=0x555555658369 "REQUIRE", size=7) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:622
++print *this
+$12 = {
+  static s_empty = <optimized out>,
+  m_start = 0x555555658369 "REQUIRE",
+  m_size = 140737488341456
+}
++s
++s
+Catch::SourceLineInfo::SourceLineInfo (this=0x7fffffffc8e0, _file=0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp", _line=98) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:505
++s
++s
+Catch::StringRef::StringRef (this=0x7fffffffc8d0, rawChars=0x55555565861f "rope[0] == 'H'") at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:13902
++print *this
+$13 = {
+  static s_empty = <optimized out>,
+  m_start = 0x55555565861f "rope[0] == 'H'",
+  m_size = 14
+}
++s
+Catch::AssertionHandler::AssertionHandler (this=0x7fffffffc988, macroName=..., lineInfo=..., capturedExpression=..., resultDisposition=Catch::ResultDisposition::Normal) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:8217
++print *this
+$14 = {
+  m_assertionInfo = {
+    macroName = {
+      static s_empty = <optimized out>,
+      m_start = 0x555555658369 "REQUIRE",
+      m_size = 7
+    },
+    lineInfo = {
+      file = 0x555555657083 "/home/david/Programming/cpp_dev/MrText/tests/testlib.cpp",
+      line = 98
+    },
+    capturedExpression = {
+      static s_empty = <optimized out>,
+      m_start = 0x55555565861f "rope[0] == 'H'",
+      m_size = 14
+    },
+    resultDisposition = Catch::ResultDisposition::Normal
+  },
+  m_reaction = {
+    shouldDebugBreak = false,
+    shouldThrow = false
+  },
+  m_completed = false,
+  m_resultCapture = @0x5555556e5820
+}
++n
++n
+[Inferior 1 (process 17046) exited with code 01]
++info locals
+No frame selected.
++print *this
+No symbol "this" in current context.
++n
+The program is not being run.
++break _index
+Breakpoint 2 at 0x555555652e43: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 55.
++delete 
++break _index
+Breakpoint 3 at 0x555555652e43: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 55.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 3, NewRope::_index (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:55
++print *this
+$15 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++print *node
+$16 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "",
+  root_node = true,
+  weight = 0
+}
++print *node->right
+$17 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556ddee0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "Hello ",
+  root_node = false,
+  weight = 6
+}
++print *node->right->right
+$18 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "world!",
+  root_node = false,
+  weight = 6
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfee43: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 57.
++print *this
+No symbol "this" in current context.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index (this=0x7fffffffc978, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:57
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "",
+  root_node = true,
+  weight = 0
+}
++print *node->right.data
+There is no member or method named data.
++print *node->right->data
+No symbol "operator*" in current context.
++print *node->right
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556ddee0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "Hello ",
+  root_node = false,
+  weight = 6
+}
++print *node->right->right
+$3 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "world!",
+  root_node = false,
+  weight = 6
+}
++print *node
+$4 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "",
+  root_node = true,
+  weight = 0
+}
++exir
+Undefined command: "exir".  Try "help".
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfeddf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 45.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string (this=0x7fffffffca18) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:532
++n
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:50
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = false,
+  weight = 12
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++frame info
+No symbol "info" in current context.
++info frame
+Stack level 0, frame at 0x7fffffffc6e0:
+ rip = 0x555555652ddf in NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (/home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45); saved rip = 0x555555652e27
+ called by frame at 0x7fffffffc7a0
+ source language c++.
+ Arglist at 0x7fffffffc6d0, args: this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0
+ Locals at 0x7fffffffc6d0, Previous frame's sp is 0x7fffffffc6e0
+ Saved registers:
+  rbp at 0x7fffffffc6d0, rip at 0x7fffffffc6d8
++print *rip
+No symbol "rip" in current context.
++print rip
+No symbol "rip" in current context.
++print *this
+$2 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++print *node
+$3 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "world!",
+  root_node = false,
+  weight = 6
+}
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++print *node
+Cannot access memory at address 0x0
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d4e98) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555652e00 in NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:50
++s
+Catch::handleSignal (sig=-781782726) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:10896
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++quit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfeddf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 45.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
+warning: Source file is more recent than executable.
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "world!",
+  root_node = false,
+  weight = 6
+}
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfede8: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 45.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = false,
+  weight = 12
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:54
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:52
++print *node
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "world!",
+  root_node = false,
+  weight = 6
+}
++n
++n
++n
++n
++n
+[Inferior 1 (process 171037) exited with code 01]
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfedcf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 49.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:49
+warning: Source file is more recent than executable.
++print idx
+$1 = 0
++print node->weight
+$2 = 12
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfedef: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 45.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
+warning: Source file is more recent than executable.
+warning: Error detected on fd 0
+error detected on stdin
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfedef: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 45.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
+warning: Source file is more recent than executable.
++n
++print idx
+$1 = 0
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:50
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:53
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:50
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++print *node
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "world!",
+  root_node = false,
+  weight = 6
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfedef: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 45.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc958, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:45
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = false,
+  weight = 12
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator bool (this=0x7fffffffc958) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:482
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfefcf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++print *this->root_node
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  proot = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++n
++print *node
+$3 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  proot = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfefcf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++n
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc8f0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:53
+Quit
++quit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfefcf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++n
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc8f0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfefcf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
+warning: Error detected on fd 0
+error detected on stdin
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfefcf: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++n
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc8f0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:49
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc8f0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:52
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc8f0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index[abi:cxx11](std::unique_ptr<RopeNode, std::default_delete<RopeNode> > const&, unsigned long) const (this=0x7fffffffc8f0, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:54
++n
+[Inferior 1 (process 172597) exited with code 01]
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfef80: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++n
++print *this
+$1 = {
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d3e60
+  }
+}
++print *node
+$2 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:49
++n
+
+Breakpoint 1, NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++print *node
+$3 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "sir.",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 4
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfef80: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:49
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x5555556d4e90
+  },
+  data = "Hello ",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 10
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break _index
+Breakpoint 1 at 0xfef80: file /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp, line 43.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:50
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:51
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x7fffffffc930) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+
+Breakpoint 1, NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:43
++print *node
+$1 = {
+  right = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  left = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  data = "sir.",
+  root_node = std::unique_ptr<RopeNode> = {
+    get() = 0x0
+  },
+  weight = 4
+}
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator bool (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:482
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:47
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:48
++n
++s
+std::unique_ptr<RopeNode, std::default_delete<RopeNode> >::operator-> (this=0x5555556d3e68) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:458
++n
+NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/NewRope.cpp:61
++n
++n
+[Inferior 1 (process 173286) exited with code 01]
++exit

@@ -1,10 +1,10 @@
 #define CATCH_CONFIG_MAIN
 
+#include "MrText/ArrayBuffer.hpp"
+#include "MrText/MrText.hpp"
+#include "MrText/Rope.hpp"
+#include "MrText/TextInfo.hpp"
 #include "TestBuffers.hpp"
-#include <MrText/ArrayBuffer.hpp>
-#include <MrText/MrText.hpp>
-#include <MrText/Rope.hpp>
-#include <MrText/TextInfo.hpp>
 
 #include <algorithm>
 #include <catch2/catch.hpp>
@@ -83,3 +83,4 @@ TEST_CASE("Check rope insertion.", "[main]") {
 
   REQUIRE(test_buffer.str() == "1");
 }
+
