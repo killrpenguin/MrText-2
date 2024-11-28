@@ -3268,3 +3268,1844 @@ NewRope::_index (this=0x7fffffffc930, node=std::unique_ptr<RopeNode> = {...}, id
 +n
 [Inferior 1 (process 173286) exited with code 01]
 +exit
+Reading symbols from ./build/tests/testlib...
++break rope
+Function "rope" not defined.
++break Rope
+Breakpoint 1 at 0xfacdd: file /home/david/Programming/cpp_dev/MrText/src/Rope.cpp, line 14.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, Rope<5u>::Rope (this=0x7fffffffcbc0) at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:14
++print *this
+$1 = {
+  static KeyArrSize = 4,
+  root = std::shared_ptr<Node<5u>> (empty) = {
+    get() = 0x0
+  }
+}
++n
++print *this
+$2 = {
+  static KeyArrSize = 4,
+  root = std::shared_ptr<Node<5u>> (use count 1, weak count 0) = {
+    get() = 0x5555556e5120
+  }
+}
++print *this->root
+$3 = {
+  static KeysLessOne = 4,
+  key_cnt = 0,
+  leaf = false,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+Quit
++n
++n
++print *this->root
+$4 = {
+  static KeysLessOne = 4,
+  key_cnt = 1,
+  leaf = false,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+  },
+  data = ""
+}
++print *this->root
+$5 = {
+  static KeysLessOne = 4,
+  key_cnt = 1,
+  leaf = false,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+  },
+  data = ""
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break Rope
+Breakpoint 1 at 0xfaecd: file /home/david/Programming/cpp_dev/MrText/src/Rope.cpp, line 15.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, Rope<5u>::Rope (this=0x7fffffffcbc0) at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:15
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:80
++print *rope
+No symbol "operator*" in current context.
++print rope
+$1 = {
+  static KeysLessOne = 4,
+  root = std::shared_ptr<Node<5u>> (use count 1, weak count 0) = {
+    get() = 0x5555556e5120
+  }
+}
++print *rope->root
+$2 = {
+  static KeysLessOne = 4,
+  key_cnt = 0,
+  leaf = false,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+  },
+  data = ""
+}
++set var rope->root->key_cnt = 4
++print *rope->root
+$3 = {
+  static KeysLessOne = 4,
+  key_cnt = 4,
+  leaf = false,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+  },
+  data = ""
+}
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string (this=0x7fffffffcbd8, __str="Hello World!") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:554
++n
++n
++n
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555564eb91 in Rope<5u>::_insert_non_full (this=0x7fffffffcbc0, node=std::shared_ptr<Node<5u>> (use count 3, weak count 0) = {...}, line_number=0) at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:37
++print *node
+$4 = {
+  static KeysLessOne = 4,
+  key_cnt = 0,
+  leaf = true,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (use count 1, weak count 0) = {
+        get() = 0x5555556e5120
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+  },
+  data = "Hello World!"
+}
++print *node->children[0]
+$5 = {
+  static KeysLessOne = 4,
+  key_cnt = 4,
+  leaf = false,
+  keys = {
+    _M_elems = {0, 0, 0, 0}
+  },
+  children = {
+    _M_elems = {std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }, std::shared_ptr<Node<5u>> (empty) = {
+        get() = 0x0
+      }}
+  },
+  data = ""
+}
++run
+Program not restarted.
++continue
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555564eb91 in Rope<5u>::_insert_non_full (this=0x7fffffffcbc0, node=std::shared_ptr<Node<5u>> (use count 3, weak count 0) = {...}, line_number=0) at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:37
++exit
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfcea5: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<char, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++print *this
+$1 = {
+  root = std::shared_ptr<BTreeNode<char, 3>> (use count 1431827544, weak count 21844) = {
+    get() = 0x555555637039 <std::__shared_ptr_access<Catch::ITestInvoker, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const+25>
+  }
+}
++print *this->root->keys
+$2 = 72 'H'
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++s
+BTree<char, 3>::insert_char (this=0x7fffffffcc08, val=97 'a') at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++print *this
+$3 = {
+  root = std::shared_ptr<BTreeNode<char, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556cf760
+  }
+}
++print *this-root
+No symbol "operator-" in current context.
++print *this->root
+$4 = {
+  keys = "aV",
+  children = {std::shared_ptr<BTreeNode<char, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<char, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<char, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd035: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++print *this->root
+$1 = {
+  keys = {281314120, -208616611},
+  children = {<error reading variable: Cannot access memory at address 0x486400000080ec89>, <error reading variable: Cannot access memory at address 0x48b07d8948f84591>, <error reading variable: Cannot access memory at address 0x48a8758b48904591>},
+  children_info = {<error reading variable: Cannot access memory at address 0xe8c68948907d8b50>, <error reading variable: Cannot access memory at address 0xa07d8348a0558950>, <error reading variable: Cannot access memory at address 0x26fe8d87d95>},
+  cur_key_count = 2424146760,
+  leaf = 72,
+  weight = 2689960776,
+  text = Python Exception <class 'OverflowError'>: int too big to convert
+,
+  info = {
+    bytes = 10985840007979925504,
+    chars = 1001555243142472,
+    line_breaks = 9046966394503415296
+  }
+}
++n
++n
++n
++print *this->root
+$2 = {
+  keys = {1431656144, 5},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = true,
+  weight = 0,
+Quit
++eixt
+Undefined command: "eixt".  Try "help".
++exit
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd035: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++print *this
+$1 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 1431827576, weak count 21844) = {
+    get() = 0x555555637059 <std::__shared_ptr_access<Catch::ITestInvoker, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get() const+25>
+  }
+}
++run
+Program not restarted.
++n
++n
++n
++print *this
+$2 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556d0760
+  }
+}
++print *this->root
+$3 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++print *this->root
+No symbol "this" in current context.
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++print *this->root
+$4 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:80
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555650eaa in BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:125
++n
+Catch::handleSignal (sig=32767) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:10896
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++n
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
+warning: Error detected on fd 0
+error detected on stdin
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd035: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
+warning: Error detected on fd 0
+error detected on stdin
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd035: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++print tree
+$1 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556d0760
+  }
+}
++print tree->root
+$2 = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+  get() = 0x5555556d0760
+}
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++print *this->root
+$3 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++n
++s
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:112
++print *arg_node
+$4 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:114
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:115
++n
++n
++n
++n
++print *arg_node->root
+There is no member or method named root.
++print *arg_node
+$5 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:67
++print *this
+$6 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556d0760
+  }
+}
++print *this->root
+$7 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:79
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:65
++s
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:112
++print *arg_node
+$8 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:115
++n
++n
++n
++n
++print *arg_node
+$9 = {
+  keys = {1, 2},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 2,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:67
++s
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:80
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:54
++n
++n
++n
++print *node
+$10 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print *root
+$11 = {
+  keys = {1, 2},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 2,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:61
++s
+std::shared_ptr<BTreeNode<int, 3> >::operator= (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:413
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:62
++s
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:73
++print *arg_node
+$12 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:74
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcb28) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:201
++n
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:76
++n
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcb28) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:84
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcb38) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:94
++print *arg_node
+$13 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print *arg_node->children[0]
+$14 = {
+  keys = {1, 2},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 2,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcb38) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:96
++n
++n
++n
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::split_child (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, idx=0) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:108
++s
+std::shared_ptr<BTreeNode<int, 3> >::~shared_ptr (this=0x7fffffffcb28) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:175
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:63
++s
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:112
++print *arg_node
+$15 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556e6e10
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:121
++print *this
+$16 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {
+    get() = 0x5555556d2240
+  }
+}
++n
++n
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555650eaa in BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:125
++print *arg_node
+$17 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print *arg_node
+$18 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++reverse-step
+Target multi-thread does not support this command.
++reverse-next
+Target multi-thread does not support this command.
++quit
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd035: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++n
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:54
++n
++n
++n
++n
++n
++n
++s
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:112
++print *arg_node
+$1 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556e6e10
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print idx
+$2 = -13312
++n
++print idx
+$3 = 0
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:121
++n
++print idx
+$4 = 0
++n
++print idx
+$5 = 1
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:131
++print idx
+$6 = 1
++print arg_node->children[1]
+$7 = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+  get() = 0x5555556e6e10
+}
++print val
+$8 = 3
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555650eaa in BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:125
++exit
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd0a5: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++n
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:54
++n
++n
++n
++n
++n
++n
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555650ed5 in BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:125
++s
+Catch::handleSignal (sig=1676385705) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:10896
++n
++quit
+Reading symbols from ./build/tests/testlib...
++break BTree
+Breakpoint 1 at 0xfd0a5: file /home/david/Programming/cpp_dev/MrText/src/BTree.cpp, line 36.
++target record-full
+Process record: the program is not being run.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++target record-full
++n
++n
+Process record does not support instruction 0xc5 at address 0x7ffff7b8c549.
+Process record: failed to record execution log.
+
+Program stopped.
+0x00007ffff7b8c549 in ?? () from /usr/lib64/libc.so.6
++reverse-next
++next 
+Cannot find bounds of current function
++reverse-step
++step 
+Cannot find bounds of current function
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++n
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++n
++n
++n
++n
++n
++n
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcbb8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:63
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555650ed5 in BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:125
++print *arg_node
+$1 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++stop
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++exit
++reverse-step
+Target multi-thread does not support this command.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++n
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++n
++n
++n
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:61
++s
+std::shared_ptr<BTreeNode<int, 3> >::operator= (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:413
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:62
++print *node
+$2 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcbb8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:63
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x0000555555650ed5 in BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 2, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:125
++print *arg_node
+$3 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print idx
+$4 = 0
++print val
+$5 = 3
++s
+Catch::handleSignal (sig=-664279752) at /home/david/Programming/cpp_dev/MrText/build/_deps/catch-src/single_include/catch2/catch.hpp:10896
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++n
++n
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:54
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:201
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:56
++s
+std::make_unique<BTreeNode<int, 3>, char const (&) [1], bool> (__args=@0x7fffffffcbcf: false, __args=@0x7fffffffcbcf: false) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/unique_ptr.h:1077
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:57
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:61
++s
+std::shared_ptr<BTreeNode<int, 3> >::operator= (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:413
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:62
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcbb8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:63
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++print *this
+$6 = std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+  get() = 0x0
+}
++s
+std::__shared_ptr<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2>::__shared_ptr (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1523
++s
+std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count (this=0x7fffffffcbb0, __r=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1075
++s
++s
+std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_add_ref_copy (this=0x5555556d19e0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:152
++s
+__gnu_cxx::__atomic_add_dispatch (__mem=0x5555556d19e8, __val=1) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/ext/atomicity.h:108
++s
+__gnu_cxx::__is_single_threaded () at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/ext/atomicity.h:52
++s
+__gnu_cxx::__atomic_add_dispatch (__mem=0x5555556d19e8, __val=1) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/ext/atomicity.h:108
++s
++s
+__gnu_cxx::__atomic_add_single (__mem=0x5555556d19e8, __val=1) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/ext/atomicity.h:92
++s
+__gnu_cxx::__atomic_add_dispatch (__mem=0x5555556d19e8, __val=1) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/ext/atomicity.h:109
++s
+std::_Sp_counted_base<(__gnu_cxx::_Lock_policy)2>::_M_add_ref_copy (this=0x5555556d19e0) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:152
++s
+std::__shared_count<(__gnu_cxx::_Lock_policy)2>::__shared_count (this=0x7fffffffcbb0, __r=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1077
++s
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 3, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:112
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1364
++print *this
+$7 = {<No data fields>}
++s
+std::__shared_ptr<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2>::get (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1667
++print M_ptr
+No symbol "M_ptr" in current context.
++print *this
+$8 = {
+  <std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>> = {<No data fields>}, 
+  members of std::__shared_ptr<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2>:
+  _M_ptr = 0x5555556d2240,
+  _M_refcount = {
+    _M_pi = 0x5555556d19e0
+  }
+}
++print *this->_M_ptr
+$9 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556e6e10
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 3, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:114
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1364
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 3, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:121
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 3, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:124
++print idx
+$10 = 0
++s
++print idx
+$11 = 1
++arg_node->children[idx]
+Undefined command: "arg_node->children".  Try "help".
++print *arg_node->children[1]
+$12 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print ORDER
+$13 = 3
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcba8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_non_full (this=0x7fffffffcc08, arg_node=std::shared_ptr<BTreeNode<int, 3>> (use count 3, weak count 0) = {...}, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:131
++print *arg_node
+$14 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556e6e10
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print *this
+$15 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 3, weak count 0) = {
+    get() = 0x5555556d2240
+  }
+}
++print *this->root
+$16 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556e6e10
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print idx
+$17 = 1
++arg_node->children[1]
+Undefined command: "arg_node->children".  Try "help".
++print *arg_node->children[1]
+$18 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, BTree<int, 3>::BTree (this=0x7fffffffcc08) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:36
++n
++n
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:78
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++print *root->cur_key_count
+Cannot access memory at address 0x0
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:65
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcb98) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=1) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:67
++print *this
+$19 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556d0760
+  }
+}
++print *this->root
+$20 = {
+  keys = {1, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 1,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:79
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:65
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcb98) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:203
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=2) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:67
++print *this
+$21 = {
+  root = std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+    get() = 0x5555556d0760
+  }
+}
++print *this->root
+$22 = {
+  keys = {1, 2},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 2,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++s
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:80
++s
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:53
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::_M_get (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1364
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:54
++s
+std::shared_ptr<BTreeNode<int, 3> >::shared_ptr (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:201
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:56
++n
++n
++s
+std::__shared_ptr_access<BTreeNode<int, 3>, (__gnu_cxx::_Lock_policy)2, false, false>::operator-> (this=0x7fffffffcbd8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr_base.h:1358
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:61
++s
+std::shared_ptr<BTreeNode<int, 3> >::operator= (this=0x7fffffffcc08) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/shared_ptr.h:413
++n
+BTree<int, 3>::insert_char (this=0x7fffffffcc08, val=3) at /home/david/Programming/cpp_dev/MrText/src/BTree.cpp:62
++print *node
+$23 = {
+  keys = {0, 0},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (use count 1, weak count 0) = {
+      get() = 0x5555556d0760
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 0,
+  leaf = false,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++print *node->children[0]
+$24 = {
+  keys = {1, 2},
+  children = {std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<BTreeNode<int, 3>> (empty) = {
+      get() = 0x0
+    }},
+  children_info = {std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }, std::shared_ptr<TextInfo> (empty) = {
+      get() = 0x0
+    }},
+  cur_key_count = 2,
+  leaf = true,
+  weight = 0,
+  text = "",
+  info = {
+    bytes = 0,
+    chars = 0,
+    line_breaks = 0
+  }
+}
++exit
+Reading symbols from ./build/tests/testlib...
++break insert
+Breakpoint 1 at 0x5cb05: insert. (11 locations)
++break delete
+Function "delete" not defined.
++delete
++break Rope
+Breakpoint 2 at 0xfb4a4: file /home/david/Programming/cpp_dev/MrText/src/Rope.cpp, line 15.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 2, Rope<5u>::Rope (this=0x7fffffffcb40) at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:15
++exit
+Reading symbols from ./build/tests/testlib...
++break Rope
+Breakpoint 1 at 0xa9aa4: file /home/david/Programming/cpp_dev/MrText/src/../include/MrText/Rope.hpp, line 31.
++run
+Starting program: /home/david/Programming/cpp_dev/MrText/build/tests/testlib 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib64/libthread_db.so.1".
+
+Breakpoint 1, Rope::Rope (this=0x7fffffffcb38) at /home/david/Programming/cpp_dev/MrText/src/../include/MrText/Rope.hpp:31
++n
++n
+____C_A_T_C_H____T_E_S_T____6 () at /home/david/Programming/cpp_dev/MrText/tests/testlib.cpp:82
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string (this=0x7fffffffcbb8, __str="left") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:554
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_get_allocator (this=0x7fffffffcbf8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:347
++s
+__gnu_cxx::__alloc_traits<std::allocator<char>, char>::_S_select_on_copy (__a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/ext/alloc_traits.h:98
++s
+std::allocator_traits<std::allocator<char> >::select_on_container_copy_construction (__rhs=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/alloc_traits.h:621
++s
+std::allocator<char>::allocator (this=0x7fffffffca77, __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/allocator.h:166
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string (this=0x7fffffffcbb8, __str="left") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:553
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_Alloc_hider::_Alloc_hider (this=0x7fffffffcbb8, __dat=0x7fffffffcbc8 "", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:198
++s
+std::allocator<char>::allocator (this=0x7fffffffcbb8, __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/allocator.h:166
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_Alloc_hider::_Alloc_hider (this=0x7fffffffcbb8, __dat=0x7fffffffcbc8 "", __a=...) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:198
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string (this=0x7fffffffcbb8, __str="left") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:556
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x7fffffffcbf8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x7fffffffcbf8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::length (this=0x7fffffffcbf8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:1084
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*> (this=0x7fffffffcbb8, __beg=0x7fffffffcc08 "left", __end=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.tcc:225
++s
+std::distance<char*> (__first=0x7fffffffcc08 "left", __last=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/stl_iterator_base_funcs.h:151
++s
+std::__distance<char*> (__first=0x7fffffffcc08 "left", __last=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/stl_iterator_base_funcs.h:106
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*> (this=0x7fffffffcbb8, __beg=0x7fffffffcc08 "left", __end=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.tcc:225
++s
++s
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag)::_Guard::_Guard(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*) (this=0x7fffffffc9a0, __s=0x7fffffffcbb8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.tcc:239
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*> (this=0x7fffffffcbb8, __beg=0x7fffffffcc08 "left", __end=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.tcc:247
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_data (this=0x7fffffffcbb8) at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:228
++s
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars (__p=0x7fffffffcbc8 "", __k1=0x7fffffffcc08 "left", __k2=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:483
++n
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*> (this=0x7fffffffcbb8, __beg=0x7fffffffcc08 "left", __end=0x7fffffffcc0c "") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.tcc:249
++n
++n
++n
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string (this=0x7fffffffcbb8, __str="left") at /usr/lib/gcc/x86_64-pc-linux-gnu/14/include/g++-v14/bits/basic_string.h:558
++n
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000055555564f277 in Rope::_insert (this=0x7fffffffcb38, node=std::shared_ptr<Node> (empty) = {...}, new_line="left") at /home/david/Programming/cpp_dev/MrText/src/Rope.cpp:26
+warning: Source file is more recent than executable.
++exit

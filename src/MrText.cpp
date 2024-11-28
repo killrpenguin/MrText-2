@@ -340,10 +340,6 @@ class enum_hash {
   }
 };
 
-const int RopeConst::Ten = 10;
-const int RopeConst::TempLastRow = 250;
-const int RopeConst::TempLineLen = 65;
-
 const int hex::exitEditor{0x11};
 const int hex::ctrlBegin{0x01};
 const int hex::ctrlEnd{0x1F};

@@ -1,4 +1,5 @@
 #define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 
 #include "MrText/ArrayBuffer.hpp"
 #include "MrText/MrText.hpp"
@@ -7,7 +8,7 @@
 #include "TestBuffers.hpp"
 
 #include <algorithm>
-#include <catch2/catch.hpp>
+
 #include <tuple>
 
 // clang-tidy tests/testlib.cpp -p build -- -isystem build/_deps
@@ -73,14 +74,16 @@ TEST_CASE("Check TextInfo operator overloading and constructors.", "[main]") {
   REQUIRE(test_obj2.contains_line_break() == true);
 }
 
-TEST_CASE("Check rope insertion.", "[main]") {
-  TestBufferCout test_buffer("");
-  Rope<char, 3> rope;
-  rope.insert_char('1');
-  rope.traverse_rope();
+TEST_CASE("Rope Practice.", "[main]") {
+  const std::string left{"left"};
+  const std::string right{"right"};
+  const std::string right2{"right12"};
+  const std::string left2{"left12"};
+  Rope rope;
 
-  //  INFO(test_buffer.str());
-
-  REQUIRE(test_buffer.str() == "1");
+  rope.insert(left);
+  rope.insert(right);
+  rope.insert(right2);
+  rope.insert(left2);
+  REQUIRE_FALSE(rope.root->is_leaf());
 }
-

@@ -1,5 +1,4 @@
 #pragma once
-// #include "MrText/RopeConstants.hpp"
 
 #include <string>
 #include <string_view>
@@ -13,8 +12,8 @@ public:
   Count line_breaks;
 
   TextInfo() noexcept;
-  explicit TextInfo(Count bytes, Count chars, Count line_breaks) noexcept;
-  explicit TextInfo(std::string_view text) noexcept;
+  explicit TextInfo(Count bytes = 0, Count = 0, Count line_breaks = 0) noexcept;
+  explicit TextInfo(std::string_view text = std::string()) noexcept;
 
   auto operator+=(const TextInfo &rval) -> void;
   auto operator-=(const TextInfo &rval) -> void;

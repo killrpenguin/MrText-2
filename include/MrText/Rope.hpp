@@ -1,39 +1,34 @@
 #pragma once
+#include "MrText/RopeConstants.hpp"
+#include "MrText/TextInfo.hpp"
+#include <array>
 #include <memory>
 #include <string>
+#include <type_traits>
+class Node;
 
-template <typename T, int ORDER> class Node;
-
-template <typename T, int ORDER> class Rope {
-  using pNode = std::shared_ptr<Node<T, ORDER>>;
-
-protected:
-  pNode root;
-
-  auto split_child(const pNode &arg_node, const int idx) noexcept -> void;
-  auto insert_non_full(pNode &arg_node, T val) noexcept -> void;
-  auto fill(pNode arg_node, int idx) noexcept -> void;
-  auto merge(pNode arg_node, int idx) noexcept -> void;
-  auto remove_from_non_leaf(pNode arg_node, int idx) noexcept -> void;
-  auto remove_from_leaf(pNode arg_node, int idx) noexcept -> void;
-  auto remove(pNode arg_node, T val) noexcept -> void;
-
-  auto traverse(pNode &root_node) noexcept -> void;
-
-  auto borrow_from_prev(pNode arg_node, int idx) noexcept -> void;
-  auto borrow_from_next(pNode arg_node, int idx) noexcept -> void;
-
-  auto search(pNode arg_node, T val) noexcept -> pNode;
-
-  auto get_predecessor(pNode arg_node, int idx) noexcept -> void;
-  auto get_successor(pNode arg_node, int idx) noexcept -> void;
-
+using pNode = std::shared_ptr<Node>;
+using uInt = unsigned long;
+class Node {
 public:
-  Rope() noexcept;
-  Rope(const std::string text) noexcept;
+  std::string line;
+  TextInfo data;
 
-  auto insert_char(T val) noexcept -> void;
-  auto traverse_rope() noexcept -> void;
-  auto search(T val) noexcept -> pNode;
-  auto remove(T val) noexcept -> void;
+  uInt weight;
+  pNode parent;
+  pNode left;
+  pNode right;
+
+  explicit Node(std::string line) noexcept;
+
+  auto is_leaf() const noexcept -> bool;
+};
+
+class Rope {
+  auto _insert(const pNode node, const std::string &new_line) noexcept -> void;
+  auto _shift_internal(const pNode node) noexcept -> pNode;
+public:
+  pNode root{nullptr};
+
+  auto insert(const std::string new_line) noexcept -> void;
 };
