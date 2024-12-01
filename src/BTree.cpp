@@ -1,150 +1,109 @@
 #include "MrText/BTree.hpp"
 #include "MrText/TextInfo.hpp"
-#include <string>
-#include <string_view>
 
-#include "MrText/RopeConstants.hpp"
-
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <bits/ranges_algo.h>
+#include <cassert>
+#include <cstdlib>
 #include <iostream>
 #include <memory>
 #include <new>
 #include <string>
+#include <utility>
 
-template <typename T, int ORDER>
-BTreeNode<T, ORDER>::BTreeNode(const std::string &text) noexcept
-    : keys{0}, children{0}, children_info{0}, cur_key_count{0}, leaf{true},
-      text{text}, info{TextInfo(std::string_view(text))} {
-  for (int i = 0; i < ORDER; i++) {
-    children[i] = nullptr;
-  }
+template <std::bidirectional_iterator Itr>
+auto BTreeNode::is_full(const Itr &bgn, const Itr &end) noexcept -> bool {
+  return std::ranges::all_of(
+      bgn, end, [](Pair const &pair) { return pair.second != nullptr; });
 }
 
-template <typename T, int ORDER>
-BTreeNode<T, ORDER>::BTreeNode(const std::string &text, bool is_leaf) noexcept
-    : keys{0}, children{0}, children_info{0}, cur_key_count{0}, leaf{is_leaf},
-      text{text}, info{TextInfo(std::string_view(text))} {
-  for (int i = 0; i < ORDER; i++) {
-    children[i] = nullptr;
-  }
+template <std::bidirectional_iterator Itr>
+auto BTreeNode::_sort_arr(const Itr &bgn, const Itr &end) noexcept -> void {
+  std::sort(bgn, end, [](const auto &lhs, const auto &rhs) {
+    return lhs.first < rhs.first;
+  });
 }
 
-template <typename T, int ORDER> BTreeNode<T, ORDER>::~BTreeNode() = default;
+auto BTreeNode::is_leaf() const noexcept -> bool { return !line.empty(); }
 
-template <typename T, int ORDER> BTree<T, ORDER>::BTree() noexcept : root{} {
+BTreeNode::BTreeNode(std::string new_line) noexcept
+    : keys{}, left{}, right{}, line{new_line}, data{TextInfo(new_line)} {}
+
+auto BTreeNode::keys_full() const noexcept -> bool {
+  return std::ranges::all_of(keys.cbegin(), keys.cend(),
+                             [](Pair pair) { return pair.second != nullptr; });
+}
+
+BRope::BRope() noexcept : root{nullptr} {
   try {
-    root = std::make_unique<BTreeNode<T, ORDER>>("");
-  } catch (const std::bad_alloc &e) {
-    std::cerr << "Memory allocation failed: " << e.what() << '\n';
+    root = std::make_shared<BTreeNode>("");
+  } catch (const std::bad_alloc &err) {
+    std::cerr << "Memory allocation failed: " << err.what() << '\n';
+    std::exit(EXIT_FAILURE);
   }
 }
 
-template <typename T, int ORDER>
-void BTree<T, ORDER>::traverse_rope() noexcept {
-  if (root != nullptr) {
-    traverse(root);
+auto BRope::_insert(const pNode &node, Pair &new_key) noexcept -> void {
+  if (BTreeNode::is_full(node->keys.begin(), node->keys.end())) {
+    _insert_full(node);
   }
+
+  auto is_nullptr = [](const Pair &pair) -> bool {
+    return pair.second == nullptr;
+  };
+
+  auto *next_empty{
+      std::find_if(node->keys.begin(), node->keys.end(), is_nullptr)};
+
+  *next_empty = std::move(new_key);
 }
 
-template <typename T, int ORDER>
-void BTree<T, ORDER>::insert_char(T val) noexcept {
-  if (root->cur_key_count == ORDER - 1) {
-    pNode node{};
-    try {
-      node = std::make_unique<BTreeNode<T, ORDER>>("", false);
-    } catch (const std::bad_alloc &e) {
-      std::cerr << "Memory allocation failed: " << e.what() << '\n';
-    }
-    node->children[0] = root;
-    root = node;
-    split_child(node, 0);
-    insert_non_full(node, val);
+auto BRope::_insert_full(const pNode &node) noexcept -> void {
+  std::sort(
+      node->keys.begin(), node->keys.end(),
+      [](const auto &lhs, const auto &rhs) { return lhs.first < rhs.first; });
+
+  uInt median{};
+  if (node->keys.size() % 2 == 0) {
+    median = btree::MedAvg;
   } else {
-    insert_non_full(root, val);
-  }
-};
-
-template <typename T, int ORDER>
-auto BTree<T, ORDER>::split_child(const pNode arg_node, const int idx) noexcept
-    -> void {
-
-  pNode target_node = arg_node->children[idx];
-  pNode new_node{};
-  try {
-    new_node = std::make_shared<BTreeNode<T, ORDER>>(std::string(""), false);
-
-  } catch (const std::bad_alloc &e) {
-    std::cerr << "Memory allocation failed: " << e.what() << '\n';
+    median = btree::MinChildren;
   }
 
-  new_node->cur_key_count = ORDER / 2 - 1;
+  uInt idx{0};
+  auto *iter = node->keys.begin();
 
-  for (int iter = 0; iter < ORDER / 2 - 1; iter++) {
-    new_node->keys[iter] = target_node->keys[iter + (ORDER / 2)];
-  }
-
-  if (!target_node->leaf) {
-    for (int iter = 0; iter < ORDER / 2; iter++) {
-      new_node->children[iter] = target_node->children[iter + (ORDER / 2)];
+  while (iter != node->keys.end()) {
+    if (iter->first == median) {
+      idx = 0;
     }
-  }
+    if (iter->first <= median) {
+      if (node->left.size() >= btree::MaxChildren) {
+        node->left.at(idx) = std::move(*iter);
+        idx++;
+      }
 
-  target_node->cur_key_count = ORDER / 2 - 1;
-
-  for (int iter = arg_node->cur_key_count; iter >= idx + 1; iter--) {
-    arg_node->children[iter + 1] = arg_node->children[iter];
-  }
-
-  arg_node->children[idx + 1] = new_node;
-
-  for (int iter = arg_node->cur_key_count - 1; iter >= idx; iter--) {
-    arg_node->keys[iter + 1] = arg_node->keys[iter];
-  }
-
-  arg_node->keys[idx] = target_node->keys[(ORDER / 2) - 1];
-  ++arg_node->cur_key_count;
-}
-
-template <typename T, int ORDER>
-auto BTree<T, ORDER>::insert_non_full(pNode arg_node, T val) noexcept -> void {
-  int idx = arg_node->cur_key_count - 1;
-
-  if (arg_node->leaf) {
-    while (idx >= 0 && val < arg_node->keys[idx]) {
-      arg_node->keys[idx + 1] = arg_node->keys[idx];
-    }
-    arg_node->keys[idx + 1] = val;
-    ++arg_node->cur_key_count;
-  } else {
-    while (idx >= 0 && val < arg_node->keys[idx]) {
-      --idx;
-    }
-    ++idx;
-    if (arg_node->children[idx]->cur_key_count == ORDER - 1) {
-      split_child(arg_node, idx);
-      if (val > arg_node->keys[idx]) {
-        ++idx;
+    } else {
+      if (node->right.size() < btree::MaxChildren) {
+        node->right.at(idx) = std::move(*iter);
+        idx++;
       }
     }
-    insert_non_full(arg_node->children[idx], val);
+    iter++;
   }
+  node->keys[0] = std::move(node->keys.at(median));
 }
 
-template <typename T, int ORDER>
-auto BTree<T, ORDER>::traverse(pNode &root_node) noexcept -> void {
-  unsigned int idx = 0;
+auto BRope::insert(const uInt line_num, const std::string &line) -> void {
+  pNode new_node{};
+  try {
+    new_node = std::make_shared<BTreeNode>(line);
+  } catch (const std::bad_alloc &err) {
+    std::cerr << "Memory allocation failed: " << err.what() << '\n';
+    std::exit(EXIT_FAILURE);
+  }
 
-  for (idx = 0; idx < root_node->cur_key_count; idx++) {
-    if (!root_node->leaf) {
-      traverse(root_node->children[idx]);
-    }
-    std::cout << root_node->keys[idx];
-  }
-  if (!root_node->leaf) {
-    traverse(root_node->children[idx]);
-  }
+  Pair new_key = std::pair(line_num, new_node);
+
+  _insert(root, new_key);
 }
-
-template class BTree<int, 3>;
-
-template class BTreeNode<int, 3>;

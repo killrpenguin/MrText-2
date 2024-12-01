@@ -1,3 +1,4 @@
+#include "MrText/BTree.hpp"
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
@@ -74,16 +75,31 @@ TEST_CASE("Check TextInfo operator overloading and constructors.", "[main]") {
   REQUIRE(test_obj2.contains_line_break() == true);
 }
 
-TEST_CASE("Rope Practice.", "[main]") {
-  const std::string left{"left"};
-  const std::string right{"right"};
-  const std::string right2{"right12"};
-  const std::string left2{"left12"};
-  Rope rope;
+// TEST_CASE("Rope Practice.", "[main]") {
+//   const std::string left{"left"};
+//   const std::string right{"right"};
+//   const std::string right2{"right12"};
+//   const std::string left2{"left12"};
+//   Rope rope;
 
-  rope.insert(left);
-  rope.insert(right);
-  rope.insert(right2);
-  rope.insert(left2);
+//   rope.insert(left);
+//   rope.insert(right);
+//   rope.insert(right2);
+//   rope.insert(left2);
+//   REQUIRE_FALSE(rope.root->is_leaf());
+// }
+
+TEST_CASE("BTreeRope Practice.", "[main]") {
+  const std::string first{"first"};
+  const std::string second{"second"};
+  const std::string third{"third"};
+  const std::string fourth{"fourth"};
+
+  BRope rope;
+  rope.insert(1, first);
+  rope.insert(2, second);
+  rope.insert(3, third);
+  rope.insert(4, fourth);
+  
   REQUIRE_FALSE(rope.root->is_leaf());
 }
