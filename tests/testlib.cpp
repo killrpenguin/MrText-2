@@ -1,15 +1,14 @@
-#include "MrText/BTree.hpp"
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
 #include "MrText/ArrayBuffer.hpp"
+#include "MrText/BTree.hpp"
 #include "MrText/MrText.hpp"
 #include "MrText/Rope.hpp"
 #include "MrText/TextInfo.hpp"
 #include "TestBuffers.hpp"
 
 #include <algorithm>
-
 #include <tuple>
 
 // clang-tidy tests/testlib.cpp -p build -- -isystem build/_deps
@@ -88,18 +87,44 @@ TEST_CASE("Check TextInfo operator overloading and constructors.", "[main]") {
 //   rope.insert(left2);
 //   REQUIRE_FALSE(rope.root->is_leaf());
 // }
+TEST_CASE("BTreeNode Tests.", "[main]") {
+  BTreeNode node("");
+
+  const std::array<int, 3> t{1, 2, 3};
+  BTreeNode::test(t.begin(), t.end());
+  
+  REQUIRE(BTreeNode::next_empty(node.keys.begin(), node.keys.end()) == 0);
+  REQUIRE(!BTreeNode::is_full(node.keys.begin(), node.keys.end()) == true);
+  REQUIRE(BTreeNode::is_empty(node.keys.begin(), node.keys.end()) == true);
+  REQUIRE(!BTreeNode::is_smallest(node.keys.begin(), node.keys.end(), 0) ==
+          true);
+}
 
 TEST_CASE("BTreeRope Practice.", "[main]") {
   const std::string first{"first"};
   const std::string second{"second"};
   const std::string third{"third"};
-  const std::string fourth{"fourth"};
-
+  // const std::string fourth{"fourth"};
+  // const std::string fifth{"first"};
+  // const std::string sixth{"second"};
+  // const std::string seventh{"third"};
+  // const std::string eighth{"fourth"};
+  // const std::string ninth{"first"};
+  // const std::string tenth{"second"};
+  // const std::string eleventh{"third"};
   BRope rope;
-  rope.insert(1, first);
-  rope.insert(2, second);
-  rope.insert(3, third);
-  rope.insert(4, fourth);
-  
+
+  rope.insert(12, first);
+  rope.insert(23, second);
+  rope.insert(6, third);
+  // rope.insert(8, fourth);
+  // rope.insert(15, fifth);
+  // rope.insert(19, sixth);
+  // rope.insert(45, seventh);
+  // rope.insert(1, eighth);
+  // rope.insert(4, ninth);
+  // rope.insert(7, tenth);
+  // rope.insert(5, eleventh);
+
   REQUIRE_FALSE(rope.root->is_leaf());
 }

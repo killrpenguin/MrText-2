@@ -2,37 +2,41 @@
 #include "MrText/TextInfo.hpp"
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <iterator>
 #include <memory>
 #include <utility>
 
 class BTreeNode;
 
-using pNode = std::shared_ptr<BTreeNode>;
+using pNode = std::unique_ptr<BTreeNode>;
 using uInt = unsigned long;
 using Pair = std::pair<uInt, pNode>;
 
-template <typename T>
-concept Iterable = requires(typename std::iterator_traits<T> i) {
-                     i.cbegin();
-                     i.cend();
-                   };
-
 namespace btree {
-const static uInt MaxChildren{3};
-constexpr static uint MinChildren{MaxChildren / 2};
-constexpr static uInt MinKeys{MaxChildren / 2 - 1};
-constexpr static uInt MaxKeys{MaxChildren - 1};
-constexpr static uInt MedAvg{MinKeys + MinChildren / 2};
+
+constexpr uInt round_up(double x) { return static_cast<uInt>(std::ceil(x)); };
+
+constexpr static double M{3.0};
+constexpr static uInt MaxChildren{static_cast<uInt>(M)};
+constexpr static uInt MaxKeys{static_cast<uInt>(M - 1)};
+constexpr static uInt Median = MaxChildren / 2;
+
+const static uInt MinChildren{round_up(M / 2)};
+const static uInt MinKeys{2 * (round_up(M / 2) - 1)};
+
 } // namespace btree
 
 using KeysArr = std::array<Pair, btree::MaxKeys>;
 using ChildrenArr = std::array<Pair, btree::MaxChildren>;
 
-class BTreeNode {
-  template <std::bidirectional_iterator Itr>
-  auto _sort_arr(const Itr &bgn, const Itr &end) noexcept -> void;
+////////////////////////////////////////////////////////////////////
+/*
+ *
+ */
+////////////////////////////////////////////////////////////////////
 
+class BTreeNode {
 public:
   KeysArr keys;
 
@@ -41,34 +45,46 @@ public:
 
   std::string line;
   TextInfo data;
+
   explicit BTreeNode(std::string new_line) noexcept;
 
   template <std::bidirectional_iterator Itr>
   auto static is_full(const Itr &bgn, const Itr &end) noexcept -> bool;
 
+  template <std::bidirectional_iterator Itr>
+  auto static is_empty(const Itr &bgn, const Itr &end) noexcept -> bool;
+
+  template <std::bidirectional_iterator Itr>
+  auto static is_smallest(const Itr &bgn, const Itr &end,
+                          const uInt other) noexcept -> bool;
+
+  template <std::bidirectional_iterator Itr>
+  auto static next_empty(const Itr &bgn, const Itr &end) -> int;
+  
+  template <std::bidirectional_iterator Itr>
+  auto static test(const Itr &bgn, const Itr &end) noexcept -> void;
+  
+  
   auto is_leaf() const noexcept -> bool;
-  auto keys_full() const noexcept -> bool;
 };
+
+////////////////////////////////////////////////////////////////////
+/*
+ *
+ */
+////////////////////////////////////////////////////////////////////
 
 class BRope {
 private:
-protected:
-  auto _insert(const pNode &node, Pair &new_key) noexcept -> void;
-  auto _insert_full(const pNode &node) noexcept -> void;
+  auto _split_child(const pNode &node, Pair new_pair) noexcept -> void;
+  auto static _insert_full(const pNode &node, Pair new_pair) noexcept -> void;
+
+  auto static _insert(const pNode &node, Pair new_pair) noexcept -> void;
 
 public:
-  pNode root;
+  const pNode root;
 
   explicit BRope() noexcept;
 
   auto insert(const uInt line_num, const std::string &line) -> void;
-
-  auto operator+(BRope other) const noexcept -> BRope;
-  auto operator+(BRope other) noexcept -> BRope;
-
-  auto operator+=(BRope other) const noexcept -> void;
-  auto operator+=(BRope other) noexcept -> void;
-
-  auto operator[](uInt line_num) const noexcept -> std::string_view;
-  auto operator[](uInt line_num) noexcept -> std::string_view;
 };
